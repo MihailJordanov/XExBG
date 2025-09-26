@@ -1,0 +1,270 @@
+[gd_scene load_steps=9 format=3 uid="uid://cffubysjlny5l"]
+
+[ext_resource type="Script" uid="uid://d2ry13dhy52hx" path="res://Scripts/adding_questions.gd" id="1_tag4f"]
+[ext_resource type="Texture2D" uid="uid://dkfxts27gad41" path="res://Images/Borders/border_paty.png" id="2_260v0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m7a8x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vrq43"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_neoj4"]
+bg_color = Color(0.32549, 1, 1, 0.196078)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opgt2"]
+bg_color = Color(0.32549, 1, 1, 0.623529)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 0.392157)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_size = 1
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_foxtw"]
+bg_color = Color(0.32549, 1, 1, 0.623529)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0.392157)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_size = 1
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u1ajb"]
+bg_color = Color(0.32549, 1, 1, 0.623529)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_size = 1
+shadow_offset = Vector2(0, 1)
+
+[node name="AddingDares" type="Node2D"]
+script = ExtResource("1_tag4f")
+
+[node name="EnterPlayerPanel" type="Panel" parent="."]
+offset_right = 90.0
+offset_bottom = 160.0
+
+[node name="ColorRect" type="ColorRect" parent="EnterPlayerPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.429581, 0.771011, 0.903684, 1)
+
+[node name="EnterNewDareLineEdit" type="LineEdit" parent="EnterPlayerPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = -2.0
+offset_bottom = 32.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 6
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m7a8x")
+
+[node name="IDLineEdit" type="LineEdit" parent="EnterPlayerPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 1.0
+offset_top = 142.0
+offset_right = -58.3125
+offset_bottom = 159.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 6
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m7a8x")
+
+[node name="ShowDaresLabel" type="RichTextLabel" parent="EnterPlayerPanel"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 51.0
+offset_right = 87.0
+offset_bottom = 100.0
+theme_override_font_sizes/bold_italics_font_size = 4
+theme_override_font_sizes/italics_font_size = 4
+theme_override_font_sizes/mono_font_size = 4
+theme_override_font_sizes/normal_font_size = 4
+theme_override_font_sizes/bold_font_size = 4
+bbcode_enabled = true
+
+[node name="ErrorLabel" type="RichTextLabel" parent="EnterPlayerPanel"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 1.0
+offset_right = 64.0
+offset_bottom = 6.0
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/bold_italics_font_size = 3
+theme_override_font_sizes/italics_font_size = 3
+theme_override_font_sizes/mono_font_size = 3
+theme_override_font_sizes/normal_font_size = 3
+theme_override_font_sizes/bold_font_size = 3
+bbcode_enabled = true
+text = "
+"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="EnterPlayerPanel"]
+position = Vector2(45, 76)
+scale = Vector2(0.234375, 0.100901)
+texture = ExtResource("2_260v0")
+
+[node name="AddDareButton" type="Button" parent="EnterPlayerPanel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 34.0
+offset_right = 82.0
+offset_bottom = 48.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vrq43")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_neoj4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_opgt2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_foxtw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_u1ajb")
+text = "Добави ново"
+icon_alignment = 1
+
+[node name="SaveButton" type="Button" parent="EnterPlayerPanel"]
+visible = false
+layout_mode = 0
+offset_left = 1.0
+offset_top = 107.0
+offset_right = 37.0
+offset_bottom = 120.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 7
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vrq43")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_neoj4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_opgt2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_foxtw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_u1ajb")
+text = "Запази"
+icon_alignment = 1
+
+[node name="LoadButton" type="Button" parent="EnterPlayerPanel"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 126.0
+offset_right = 38.0
+offset_bottom = 140.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 7
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vrq43")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_neoj4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_opgt2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_foxtw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_u1ajb")
+text = "Зареди"
+icon_alignment = 1
+
+[node name="DeleteButton" type="Button" parent="EnterPlayerPanel"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 143.0
+offset_right = 87.0
+offset_bottom = 157.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vrq43")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_neoj4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_opgt2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_foxtw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_u1ajb")
+text = "Изтрий"
+icon_alignment = 1
+
+[node name="CategoryOptionButton" type="OptionButton" parent="EnterPlayerPanel"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 105.0
+offset_right = 88.0
+offset_bottom = 125.0
+theme_override_font_sizes/font_size = 3
+alignment = 1
+selected = 3
+item_count = 4
+popup/item_0/text = "classic"
+popup/item_0/id = 0
+popup/item_1/text = "extreme"
+popup/item_1/id = 1
+popup/item_2/text = "sexy"
+popup/item_2/id = 2
+popup/item_3/text = "dirty"
+popup/item_3/id = 3
+
+[node name="SubOptionButton" type="OptionButton" parent="EnterPlayerPanel"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 123.0
+offset_right = 88.0
+offset_bottom = 143.0
+theme_override_font_sizes/font_size = 3
+alignment = 1
+selected = 3
+item_count = 5
+popup/item_0/text = "one"
+popup/item_0/id = 0
+popup/item_1/text = "two"
+popup/item_1/id = 1
+popup/item_2/text = "three"
+popup/item_2/id = 2
+popup/item_3/text = "four"
+popup/item_3/id = 3
+popup/item_4/text = "all"
+popup/item_4/id = 4
