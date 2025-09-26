@@ -1,0 +1,288 @@
+[gd_scene load_steps=15 format=3 uid="uid://cit2tnfxbaf1d"]
+
+[ext_resource type="Script" uid="uid://cf41b8jt77c1x" path="res://Levels/level_controller.gd" id="1_7nftj"]
+[ext_resource type="Texture2D" uid="uid://c1mjxs2guq7vq" path="res://Images/Icons/not_colored_icon.png" id="1_35vm2"]
+[ext_resource type="Script" uid="uid://du4nb7uo66pv3" path="res://Levels/rich_text_label.gd" id="1_gyxq7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35vm2"]
+bg_color = Color(0.584314, 1, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 3
+shadow_offset = Vector2(-1.48, -0.17)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gyxq7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wscug"]
+bg_color = Color(0.32549, 1, 0, 0.196078)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nftj"]
+bg_color = Color(0.32549, 1, 0, 0.623529)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 0.392157)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_size = 1
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vxx3b"]
+bg_color = Color(0.0980392, 1, 0, 0.623529)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0.392157)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_size = 1
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gyxq7"]
+bg_color = Color(0.32549, 1, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_size = 1
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xi3iv"]
+bg_color = Color(0.32549, 1, 0, 0.196078)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="Animation" id="Animation_gyxq7"]
+resource_name = "next_question"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(4, 2), Vector2(-75, -50), Vector2(4, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -1.5708, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_7nftj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_vxx3b"]
+resource_name = "prev_question"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(4, 2), Vector2(-75, 50), Vector2(4, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.5708, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vxx3b"]
+_data = {
+&"RESET": SubResource("Animation_7nftj"),
+&"next_question": SubResource("Animation_gyxq7"),
+&"prev_question": SubResource("Animation_vxx3b")
+}
+
+[node name="ClassicLevel01" type="Node2D"]
+script = ExtResource("1_7nftj")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 4.0
+offset_top = 2.0
+offset_right = 86.0
+offset_bottom = 47.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_35vm2")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = -3.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 1
+text = "Готови!"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_gyxq7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -30
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 90.0
+offset_bottom = 160.0
+color = Color(0.498039, 1, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+modulate = Color(0.498039, 1, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_35vm2")
+expand_mode = 1
+
+[node name="NextButton" type="Button" parent="."]
+offset_left = 26.0
+offset_top = 56.0
+offset_right = 81.0
+offset_bottom = 72.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 9
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gyxq7")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_wscug")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7nftj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vxx3b")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gyxq7")
+text = "Следващ >"
+icon_alignment = 1
+
+[node name="PrevButton" type="Button" parent="."]
+offset_left = 9.0
+offset_top = 56.0
+offset_right = 23.0
+offset_bottom = 72.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 9
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gyxq7")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_wscug")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7nftj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vxx3b")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gyxq7")
+text = "<"
+icon_alignment = 1
+
+[node name="BackButton" type="Button" parent="."]
+offset_right = 19.0
+offset_bottom = 8.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 3
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gyxq7")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_xi3iv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7nftj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vxx3b")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gyxq7")
+text = "< Назад"
+icon_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_vxx3b")
+}

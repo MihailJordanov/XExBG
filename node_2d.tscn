@@ -1,0 +1,154 @@
+[gd_scene load_steps=10 format=3 uid="uid://kf1fvj5u34w5"]
+
+[ext_resource type="FontFile" uid="uid://bcjx4bib6qgco" path="res://Fonts/ZeroCool.otf" id="1_wtcfe"]
+[ext_resource type="Texture2D" uid="uid://com1r2le8cmgv" path="res://Images/BG/classic_bg.png" id="2_0e48y"]
+[ext_resource type="Texture2D" uid="uid://bb7sgsexmpdyv" path="res://Images/BG/extreme_bg.png" id="3_epypp"]
+[ext_resource type="Texture2D" uid="uid://6spq644xe7ec" path="res://Images/BG/love_bg.png" id="4_0hol4"]
+[ext_resource type="Texture2D" uid="uid://h3vcxw0h6ijr" path="res://Images/BG/dirty_bg.png" id="5_q6r6c"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0e48y"]
+texture = ExtResource("2_0e48y")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0hol4"]
+texture = ExtResource("3_epypp")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q6r6c"]
+texture = ExtResource("4_0hol4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kdubu"]
+texture = ExtResource("5_q6r6c")
+
+[node name="MainScene" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -30
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 90.0
+offset_bottom = 160.0
+color = Color(0.25098, 0.878431, 0.815686, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 5.0
+offset_right = 90.0
+offset_bottom = 21.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("1_wtcfe")
+theme_override_font_sizes/bold_italics_font_size = 3
+theme_override_font_sizes/normal_font_size = 9
+text = "ГОТОВ ЗА ПАРТИ!!!"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 3.0
+offset_top = 24.0
+offset_right = 87.0
+offset_bottom = 165.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Classic" type="Button" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxTexture_0e48y")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/GridContainer/Classic"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/bold_italics_font_size = 6
+theme_override_font_sizes/italics_font_size = 6
+theme_override_font_sizes/mono_font_size = 6
+theme_override_font_sizes/normal_font_size = 6
+theme_override_font_sizes/bold_font_size = 6
+bbcode_enabled = true
+text = "[b]Класически"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Extreme" type="Button" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxTexture_0hol4")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/GridContainer/Extreme"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/bold_italics_font_size = 6
+theme_override_font_sizes/italics_font_size = 6
+theme_override_font_sizes/mono_font_size = 6
+theme_override_font_sizes/normal_font_size = 6
+theme_override_font_sizes/bold_font_size = 6
+bbcode_enabled = true
+text = "[b]Екстремни
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sexy" type="Button" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxTexture_q6r6c")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/GridContainer/Sexy"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/bold_italics_font_size = 6
+theme_override_font_sizes/italics_font_size = 6
+theme_override_font_sizes/mono_font_size = 6
+theme_override_font_sizes/normal_font_size = 6
+theme_override_font_sizes/bold_font_size = 6
+bbcode_enabled = true
+text = "[b]Луди
+Секси
+Диви"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Dirty" type="Button" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxTexture_kdubu")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/GridContainer/Dirty"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/bold_italics_font_size = 6
+theme_override_font_sizes/italics_font_size = 6
+theme_override_font_sizes/mono_font_size = 6
+theme_override_font_sizes/normal_font_size = 6
+theme_override_font_sizes/bold_font_size = 6
+bbcode_enabled = true
+text = "[b]Мръсни
+Перверзни[/b]
+[font_size=3](не се препоръчва)"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
