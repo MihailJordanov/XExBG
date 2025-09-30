@@ -3,6 +3,7 @@ extends Node
 
 const SAVE_PATH := "user://save.sav"
 
+# Работим само с категории (без под-ключове)
 const CATEGORY_KEYS := [
 	"classic_dares",
 	"extreme_dares",
@@ -10,65 +11,63 @@ const CATEGORY_KEYS := [
 	"dirty_dares",
 ]
 
-const SUB_KEYS := [
-	"daresOne",
-	"daresTwo",
-	"daresThree",
-	"daresFour",
-	"daresAll",
-]
-
 var current_save: Dictionary = {}
 
 func _init() -> void:
 	current_save = _default_save()
+	
+func _ready() -> void:
+	# опитай да заредиш сейва веднага щом автолоудът тръгне
+	var ok := load_dares()
+	if ok:
+		print("[DareManager] Save loaded.")
+	else:
+		print("[DareManager] No save found -> using defaults.")
 
 # ---------- Defaults ----------
-func _default_bucket() -> Dictionary:
-	return {
-		"daresOne":  [] as Array[String],
-		"daresTwo":  [] as Array[String],
-		"daresThree":[] as Array[String],
-		"daresFour": [] as Array[String],
-		"daresAll":  [] as Array[String],
-	}
-
 func _default_save() -> Dictionary:
-	return {
-		"classic_dares": _default_bucket(),
-		"extreme_dares": _default_bucket(),
-		"sexy_dares":    _default_bucket(),
-		"dirty_dares":   _default_bucket(),
-	}
+	var d: Dictionary = {}
+	for cat in CATEGORY_KEYS:
+		d[cat] = [] as Array[String]
+	return d
 
-# ---------- Public API ----------
-func add_dare(category: String, subgroup: String, text: String) -> void:
-	if not current_save.has(category):
+# ---------- Public API (само категории) ----------
+func has_category(category: String) -> bool:
+	return CATEGORY_KEYS.has(category)
+
+func add_dare(category: String, text: String) -> void:
+	if not has_category(category):
 		push_warning("Unknown category: %s" % category); return
-	if not SUB_KEYS.has(subgroup):
-		push_warning("Unknown subgroup: %s" % subgroup); return
-
 	text = text.strip_edges()
-	if text.is_empty(): return
+	if text.is_empty():
+		return
+	var arr := current_save[category] as Array
+	# избягваме дубли
+	if not arr.has(text):
+		arr.append(text)
 
-	var arr := current_save[category][subgroup] as Array
-	arr.append(text)
-	_rebuild_dares_all(category)
-
-func remove_dare(category: String, subgroup: String, text: String) -> void:
-	if not (current_save.has(category) and SUB_KEYS.has(subgroup)): return
-	var arr := current_save[category][subgroup] as Array
+func remove_dare(category: String, text: String) -> void:
+	if not has_category(category):
+		return
+	var arr := current_save[category] as Array
 	arr.erase(text)
-	_rebuild_dares_all(category)
 
-func get_dares(category: String, subgroup: String) -> Array[String]:
-	if not (current_save.has(category) and SUB_KEYS.has(subgroup)):
+func get_dares(category: String, duplicate_result := true) -> Array[String]:
+	if not has_category(category):
 		return [] as Array[String]
-	return current_save[category][subgroup]
+	var arr: Array = current_save[category]
+	return arr.duplicate() if duplicate_result else arr
 
 func clear_category(category: String) -> void:
-	if not current_save.has(category): return
-	current_save[category] = _default_bucket()
+	if not has_category(category): return
+	current_save[category] = [] as Array[String]
+
+func get_all_categories() -> Dictionary:
+	# Връща копие за безопасно четене
+	var out := {}
+	for cat in CATEGORY_KEYS:
+		out[cat] = (current_save[cat] as Array).duplicate()
+	return out
 
 # ---------- Save / Load ----------
 func save_dares() -> bool:
@@ -97,74 +96,44 @@ func load_dares() -> bool:
 		current_save = _default_save()
 		return false
 
-	current_save = _merge_with_defaults(data)
+	current_save = _normalize_loaded(data)
 	return true
 
 # ---------- Helpers ----------
-func _rebuild_dares_all(category: String) -> void:
-	if not current_save.has(category): return
-	var bucket := current_save[category] as Dictionary
-	var combined: Array[String] = []
-	for key in ["daresOne","daresTwo","daresThree","daresFour"]:
-		var arr := bucket.get(key, []) as Array
-		for v in arr:
-			var s := String(v)
-			if not combined.has(s):
-				combined.append(s)
-	bucket["daresAll"] = combined
+# Приема както новия плосък формат, така и стария (с под-ключове), и връща плосък.
+func _normalize_loaded(loaded: Dictionary) -> Dictionary:
+	var result := _default_save()
 
-func _merge_with_defaults(loaded: Dictionary) -> Dictionary:
-	var def := _default_save()
 	for cat in CATEGORY_KEYS:
-		var lb := (loaded.get(cat, {}) as Dictionary)
-		var db := def[cat] as Dictionary
-		# Увери се, че всеки под-списък е масив от String
-		for sk in SUB_KEYS:
-			var arr := []
-			if lb.has(sk) and typeof(lb[sk]) == TYPE_ARRAY:
-				for v in (lb[sk] as Array):
-					arr.append(String(v))
-			db[sk] = arr
-	return def
+		if not loaded.has(cat):
+			continue
 
+		var v = loaded[cat]
+		match typeof(v):
+			TYPE_ARRAY:
+				# Нов формат: директно списък с низове
+				result[cat] = _as_string_array(v as Array)
+			TYPE_DICTIONARY:
+				# Стар формат: комбинираме известните под-ключове в една листа
+				var legacy := v as Dictionary
+				var combined: Array[String] = []
+				for sk in ["daresOne","daresTwo","daresThree","daresFour","daresAll"]:
+					if legacy.has(sk) and typeof(legacy[sk]) == TYPE_ARRAY:
+						for item in (legacy[sk] as Array):
+							var s := String(item)
+							if not combined.has(s):
+								combined.append(s)
+				result[cat] = combined
+			_:
+				# Непознат тип – игнорираме, оставяме празно по дефолт
+				pass
 
+	return result
 
-func has_category(category: String) -> bool:
-	return current_save.has(category)
-
-func get_category_list(category: String, subgroup: String, duplicate_result := true) -> Array[String]:
-	if not has_category(category) or not SUB_KEYS.has(subgroup):
-		return [] as Array[String]
-
-	var raw_arr: Array = current_save[category][subgroup]
-	var arr: Array[String] = [] 
-	for v in raw_arr:
-		arr.append(str(v))  # гарантираме, че е String
-
-	return arr.duplicate() if duplicate_result else arr
-
-
-
-func get_dares_one(category: String)   -> Array[String]:
-	return get_category_list(category, "daresOne")
-func get_dares_two(category: String)   -> Array[String]:
-	return get_category_list(category, "daresTwo")
-func get_dares_three(category: String) -> Array[String]:
-	return get_category_list(category, "daresThree")
-func get_dares_four(category: String)  -> Array[String]:
-	return get_category_list(category, "daresFour")
-func get_dares_all(category: String)   -> Array[String]:
-	return get_category_list(category, "daresAll")
-
-func get_category_bucket(category: String, duplicate_result := true) -> Dictionary:
-	if not has_category(category): return {}
-	return current_save[category].duplicate(true) if duplicate_result else current_save[category]
-
-func get_lists_for(category: String) -> Dictionary:
-	return {
-		"daresOne":   get_dares_one(category),
-		"daresTwo":   get_dares_two(category),
-		"daresThree": get_dares_three(category),
-		"daresFour":  get_dares_four(category),
-		"daresAll":   get_dares_all(category),
-	}
+func _as_string_array(arr: Array) -> Array[String]:
+	var out: Array[String] = []
+	for v in arr:
+		var s := String(v)
+		if not out.has(s):
+			out.append(s)
+	return out

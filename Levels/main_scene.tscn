@@ -1,22 +1,22 @@
 [gd_scene load_steps=10 format=3 uid="uid://kf1fvj5u34w5"]
 
-[ext_resource type="FontFile" uid="uid://bcjx4bib6qgco" path="res://Fonts/ZeroCool.otf" id="1_wtcfe"]
-[ext_resource type="Texture2D" uid="uid://com1r2le8cmgv" path="res://Images/BG/classic_bg.png" id="2_0e48y"]
-[ext_resource type="Texture2D" uid="uid://bb7sgsexmpdyv" path="res://Images/BG/extreme_bg.png" id="3_epypp"]
-[ext_resource type="Texture2D" uid="uid://6spq644xe7ec" path="res://Images/BG/love_bg.png" id="4_0hol4"]
-[ext_resource type="Texture2D" uid="uid://h3vcxw0h6ijr" path="res://Images/BG/dirty_bg.png" id="5_q6r6c"]
+[ext_resource type="FontFile" uid="uid://bcjx4bib6qgco" path="res://Fonts/ZeroCool.otf" id="1_wr0fo"]
+[ext_resource type="Texture2D" uid="uid://com1r2le8cmgv" path="res://Images/BG/classic_bg.png" id="2_72q2g"]
+[ext_resource type="Texture2D" uid="uid://bb7sgsexmpdyv" path="res://Images/BG/extreme_bg.png" id="3_mne4e"]
+[ext_resource type="Texture2D" uid="uid://6spq644xe7ec" path="res://Images/BG/love_bg.png" id="4_wjs4o"]
+[ext_resource type="Texture2D" uid="uid://h3vcxw0h6ijr" path="res://Images/BG/dirty_bg.png" id="5_mc1i1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0e48y"]
-texture = ExtResource("2_0e48y")
+texture = ExtResource("2_72q2g")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0hol4"]
-texture = ExtResource("3_epypp")
+texture = ExtResource("3_mne4e")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q6r6c"]
-texture = ExtResource("4_0hol4")
+texture = ExtResource("4_wjs4o")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kdubu"]
-texture = ExtResource("5_q6r6c")
+texture = ExtResource("5_mc1i1")
 
 [node name="MainScene" type="Node2D"]
 
@@ -37,7 +37,7 @@ offset_right = 90.0
 offset_bottom = 21.0
 grow_horizontal = 2
 theme_override_constants/outline_size = 6
-theme_override_fonts/normal_font = ExtResource("1_wtcfe")
+theme_override_fonts/normal_font = ExtResource("1_wr0fo")
 theme_override_font_sizes/bold_italics_font_size = 3
 theme_override_font_sizes/normal_font_size = 9
 text = "ГОТОВ ЗА ПАРТИ!!!"
