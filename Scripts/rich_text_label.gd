@@ -1,6 +1,6 @@
 extends RichTextLabel
 
-const MIN_FS := 4
+const MIN_FS := 5
 const MAX_FS := 48
 
 func _ready() -> void:

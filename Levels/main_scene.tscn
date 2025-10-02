@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://kf1fvj5u34w5"]
+[gd_scene load_steps=14 format=3 uid="uid://kf1fvj5u34w5"]
 
+[ext_resource type="Script" uid="uid://dejyobwq80sg7" path="res://Levels/main_scene_controller.gd" id="1_72q2g"]
 [ext_resource type="FontFile" uid="uid://bcjx4bib6qgco" path="res://Fonts/ZeroCool.otf" id="1_wr0fo"]
 [ext_resource type="Texture2D" uid="uid://com1r2le8cmgv" path="res://Images/BG/classic_bg.png" id="2_72q2g"]
 [ext_resource type="Texture2D" uid="uid://bb7sgsexmpdyv" path="res://Images/BG/extreme_bg.png" id="3_mne4e"]
@@ -18,7 +19,70 @@ texture = ExtResource("4_wjs4o")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kdubu"]
 texture = ExtResource("5_mc1i1")
 
+[sub_resource type="Animation" id="Animation_72q2g"]
+resource_name = "start_classic"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 2),
+"update": 0,
+"values": [Vector2(45, 80), Vector2(22.5, 44.035)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(6.525, 6.525)]
+}
+
+[sub_resource type="Animation" id="Animation_mne4e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(45, 80)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wjs4o"]
+_data = {
+&"RESET": SubResource("Animation_mne4e"),
+&"start_classic": SubResource("Animation_72q2g")
+}
+
 [node name="MainScene" type="Node2D"]
+script = ExtResource("1_72q2g")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -30
@@ -65,6 +129,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_0e48y")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 3
@@ -88,6 +153,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_0hol4")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 3
@@ -112,6 +178,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_q6r6c")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 3
@@ -137,6 +204,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_kdubu")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
@@ -152,3 +220,13 @@ text = "[b]Мръсни
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wjs4o")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(45, 80)
+
+[connection signal="button_down" from="ScrollContainer/GridContainer/Classic" to="." method="_on_classic_button_down"]

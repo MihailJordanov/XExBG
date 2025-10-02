@@ -7,6 +7,7 @@ extends Node2D
 @onready var back_button: Button = $BackButton
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var dares_rich_text_label: RichTextLabel = $QuestionPanel/DaresRichTextLabel
+@onready var dare_type_panel: Panel = $QuestionPanel/DareTypePanel
 
 # Enter Player Panel
 @onready var line_edit: LineEdit = $EnterPlayerPanel/LineEdit
@@ -26,8 +27,14 @@ extends Node2D
 @export var shuffle_dares : bool = true
 
 var players : Array[String] = []
-var dares   : Array[String] = []   # <-- тук са въпросите за текущото ниво
-var dare_index : int = -1          # текущ индекс в даres
+var dares   : Array[String] = []   # въпросите за текущото ниво
+var dare_index : int = -1          # индекс в dares
+
+# --- ЧЕСТНА РОТАЦИЯ + ИСТОРИЯ ---
+var pool: Array[String] = []       # текущ басейн от играчи за ротация
+var history: Array[String] = []    # показани вече предизвикателства (след замяна)
+var history_index: int = -1        # позиция в history (за Prev/Next навигация)
+var history_need: Array[int] = []
 
 const NEXT_ANIM : StringName = &"next_question"
 const PREV_ANIM : StringName = &"prev_question"
@@ -72,7 +79,6 @@ func _reload_level_dares() -> void:
 	var combined: Array[String] = []
 
 	if cats.is_empty():
-		# ако нищо не е избрано – оставяме празно и предупреждаваме в конзолата
 		push_warning("Няма избрани категории за това ниво. Избери поне една.")
 		dares = []
 		dare_index = -1
@@ -89,21 +95,84 @@ func _reload_level_dares() -> void:
 		combined.shuffle()
 
 	dares = combined
-	dare_index = -1  # започваме отначало
+	dare_index = -1
+	# при ново зареждане — занули историята
+	history.clear()
+	history_index = -1
+	history_need.clear()
 
-# Връща следващ въпрос; ако стигнем края – въртим отначало
-func get_next_dare() -> String:
-	if dares.is_empty():
-		return ""
-	dare_index = (dare_index + 1) % dares.size()
-	return dares[dare_index]
+# ---------- ЛОГИКА ЗА РОТАЦИЯ И ПРЕДИЗВИКАТЕЛСТВА ----------
+func _reset_pool() -> void:
+	pool = players.duplicate()
+	pool.shuffle()
 
-# Връща предишен въпрос (с въртене в обратна посока)
-func get_prev_dare() -> String:
+# 1) За колко играча е нужно (намира _1, _2, _3...)
+func _dare_required_indices(text: String) -> Array[int]:
+	var re := RegEx.new()
+	re.compile("_(\\d+)")
+	var uniq := {}
+	for m in re.search_all(text):
+		var idx := int(m.get_string(1))
+		uniq[idx] = true
+	var out: Array[int] = []
+	for k in uniq.keys():
+		out.append(int(k))
+	out.sort()
+	return out
+
+func _dare_required_count(text: String) -> int:
+	return _dare_required_indices(text).size()
+
+# 2) Замяна на _1, _2, ... с подадени имена
+func _replace_placeholders(text: String, selected: Array[String]) -> String:
+	var indices := _dare_required_indices(text)
+	indices.reverse() # заменяме от по-големите към по-малките (_10 преди _1)
+	var out := text
+	for i in indices:
+		var pos := i - 1
+		if pos >= 0 and pos < selected.size():
+			out = out.replace("_%d" % i, selected[pos])
+	return out
+
+# 3) Може ли да се изпълни с наличния басейн (или е обща карта)?
+func _can_execute_with_pool(text: String) -> bool:
+	var need := _dare_required_count(text)
+	return need == 0 or need <= pool.size()
+
+# Взима n играча от басейна; ако се изпразни — ресет
+func _take_from_pool(n: int) -> Array[String]:
+	var picked: Array[String] = []
+	var k: int = min(n, pool.size())
+	for i in k:
+		picked.append(pool[0])
+		pool.remove_at(0)
+	if pool.is_empty():
+		_reset_pool()
+	return picked
+
+# Избира следващо „играемо“ предизвикателство спрямо басейна (прескача невъзможните)
+# Връща {"raw": String, "render": String, "players": Array[String]} или {} ако няма валидно
+func _next_playable_dare(_after_reset := false) -> Dictionary:
 	if dares.is_empty():
-		return ""
-	dare_index = (dare_index - 1 + dares.size()) % dares.size()
-	return dares[dare_index]
+		return {}
+	var scanned := 0
+	while scanned < dares.size():
+		dare_index = (dare_index + 1) % dares.size()
+		var raw := dares[dare_index]
+		var need := _dare_required_count(raw)
+		if need == 0:
+			var render0 := _replace_placeholders(raw, [])
+			return {"raw": raw, "render": render0, "players": []}
+		if need <= pool.size():
+			var picked := _take_from_pool(need)
+			var render := _replace_placeholders(raw, picked)
+			return {"raw": raw, "render": render, "players": picked}
+		scanned += 1
+	# Ако с текущия басейн няма валидно, опитай след ресет веднъж
+	if not _after_reset and not players.is_empty():
+		_reset_pool()
+		return _next_playable_dare(true)
+	return {}
 
 # ---------- БУТОНИ/АНИМАЦИИ ----------
 func _on_next_pressed() -> void:
@@ -113,14 +182,34 @@ func _on_next_pressed() -> void:
 	_set_buttons_disabled(true)
 	animation_player.play(NEXT_ANIM)
 
-	var q := get_next_dare()
-	if q.is_empty():
-		q = "[i]Няма достъпни въпроси. Провери избраните категории или сейва.[/i]"
-	dares_rich_text_label.set_text_smart(q)  
+	var txt := ""
+	# ако сме навигирали назад, ходи напред в историята без да генерираш ново
+	if history_index < history.size() - 1:
+		history_index += 1
+		txt = history[history_index]
+		dare_type_panel.visible = (history_index < history_need.size() and history_need[history_index] == 0)
+
+	else:
+		var entry := _next_playable_dare()
+		if entry.is_empty():
+			txt = "[i]Няма валидни предизвикателства за текущите играчи.[/i]"
+			dare_type_panel.visible = false
+		else:
+			txt = String(entry["render"])
+			var raw: String = String(entry["raw"])
+			var need: int = _dare_required_count(raw)
+
+			history.append(txt)
+			history_need.append(need)
+			history_index = history.size() - 1
+			dare_type_panel.visible = (need == 0)
+
+
+
+	dares_rich_text_label.set_text_smart(txt)
 
 	await animation_player.animation_finished
 	_set_buttons_disabled(false)
-
 
 func _on_prev_pressed() -> void:
 	if not animation_player.has_animation(PREV_ANIM):
@@ -129,15 +218,20 @@ func _on_prev_pressed() -> void:
 	_set_buttons_disabled(true)
 	animation_player.play(PREV_ANIM)
 
-	var q := get_prev_dare()
-	if q.is_empty():
-		q = "[i]Няма достъпни въпроси. Провери избраните категории или сейва.[/i]"
-	dares_rich_text_label.set_text_smart(q)
+	var txt := ""
+	if history.is_empty():
+		txt = "[i]Няма предишни предизвикателства.[/i]"
+		dare_type_panel.visible = false
+
+	else:
+		history_index = max(0, history_index - 1)
+		txt = history[history_index]
+		dare_type_panel.visible = (history_index < history_need.size() and history_need[history_index] == 0)
+
+	dares_rich_text_label.set_text_smart(txt)
 
 	await animation_player.animation_finished
 	_set_buttons_disabled(false)
-
-
 
 func _set_buttons_disabled(disabled: bool) -> void:
 	prev_button.disabled = disabled
@@ -193,12 +287,32 @@ func _show_error(msg: String) -> void:
 
 func _hide_error() -> void:
 	error_label.visible = false
-	
+
 func _on_start_game_pressed() -> void:
 	if players.size() < 2:
 		_show_error("[color=#ff4d4d][b]Нужни са поне двама играчи, за да стартирате.[/b][/color]")
 		return
 
 	_hide_error()
-
 	enter_player_panel.hide()
+
+	# инициализирай ротацията и историята
+	_reset_pool()
+	if shuffle_dares:
+		dares.shuffle()
+	history.clear()
+	history_index = -1
+	dare_index = -1
+
+	# покажи първото валидно предизвикателство веднага
+	var entry := _next_playable_dare()
+	var txt: String = String(entry.get("render", "[i]Няма валидни предизвикателства.[/i]"))
+	dares_rich_text_label.set_text_smart(txt)
+	
+	var raw0: String = String(entry.get("raw", ""))
+	var need0: int = _dare_required_count(raw0)
+	dare_type_panel.visible = (need0 == 0)
+	
+	history.append(txt)
+	history_need.append(need0)
+	history_index = history.size() - 1
