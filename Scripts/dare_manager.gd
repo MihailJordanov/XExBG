@@ -2,6 +2,7 @@
 extends Node
 
 const SAVE_PATH := "user://save.sav"
+var is_warning_ready = false
 
 # Работим само с категории (без под-ключове)
 const CATEGORY_KEYS := [

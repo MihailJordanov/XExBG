@@ -8,6 +8,7 @@ extends Node2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var dares_rich_text_label: RichTextLabel = $QuestionPanel/DaresRichTextLabel
 @onready var dare_type_panel: Panel = $QuestionPanel/DareTypePanel
+@onready var exit_panel: Panel = $ExitPanel
 
 # Enter Player Panel
 @onready var line_edit: LineEdit = $EnterPlayerPanel/LineEdit
@@ -316,3 +317,34 @@ func _on_start_game_pressed() -> void:
 	history.append(txt)
 	history_need.append(need0)
 	history_index = history.size() - 1
+	
+	
+	
+
+func _on_stay_button_button_down() -> void:
+	exit_panel.visible = false
+
+func _on_back_button_button_down() -> void:
+	exit_panel.visible = true
+
+func _on_exit_button_button_down() -> void:
+	play_anim_then_change_scene(animation_player, &"back_to_main", "res://Levels/main_scene.tscn")
+	
+	
+	
+func play_anim_then_change_scene(anim_player: AnimationPlayer, anim: StringName, scene: Variant) -> void:
+	if anim_player and anim_player.has_animation(anim):
+		anim_player.play(anim)
+		var finished: StringName = await anim_player.animation_finished
+		# по желание: гаранция, че чакахме точната анимация
+		if finished != anim:
+			push_warning("Different animation finished: %s" % finished)
+	else:
+		push_warning("Animation '%s' not found; switching immediately." % anim)
+
+	if typeof(scene) == TYPE_STRING:
+		get_tree().change_scene_to_file(String(scene))            # "res://path/to_scene.tscn"
+	elif typeof(scene) == TYPE_OBJECT and scene is PackedScene:
+		get_tree().change_scene_to_packed(scene as PackedScene)   # ако подадеш PackedScene
+	else:
+		push_error("Invalid scene argument (use path String or PackedScene).")

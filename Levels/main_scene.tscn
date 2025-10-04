@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://kf1fvj5u34w5"]
+[gd_scene load_steps=32 format=3 uid="uid://kf1fvj5u34w5"]
 
 [ext_resource type="Script" uid="uid://dejyobwq80sg7" path="res://Levels/main_scene_controller.gd" id="1_72q2g"]
 [ext_resource type="FontFile" uid="uid://bcjx4bib6qgco" path="res://Fonts/ZeroCool.otf" id="1_wr0fo"]
@@ -6,80 +6,154 @@
 [ext_resource type="Texture2D" uid="uid://bb7sgsexmpdyv" path="res://Images/BG/extreme_bg.png" id="3_mne4e"]
 [ext_resource type="Texture2D" uid="uid://6spq644xe7ec" path="res://Images/BG/love_bg.png" id="4_wjs4o"]
 [ext_resource type="Texture2D" uid="uid://h3vcxw0h6ijr" path="res://Images/BG/dirty_bg.png" id="5_mc1i1"]
+[ext_resource type="Texture2D" uid="uid://cr2j5hdfvqsyj" path="res://Images/Panels/dirty_icon_2.png" id="7_mne4e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mne4e"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_72q2g"]
+texture = ExtResource("2_72q2g")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+modulate_color = Color(0.741385, 0.741385, 0.741385, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mne4e"]
+texture = ExtResource("2_72q2g")
+modulate_color = Color(0.355314, 0.355314, 0.355314, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0e48y"]
 texture = ExtResource("2_72q2g")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wjs4o"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wjs4o"]
+texture = ExtResource("3_mne4e")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mc1i1"]
+texture = ExtResource("3_mne4e")
+modulate_color = Color(0.356863, 0.356863, 0.356863, 1)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0hol4"]
 texture = ExtResource("3_mne4e")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mc1i1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8rkvs"]
+texture = ExtResource("4_wjs4o")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+modulate_color = Color(0.741176, 0.741176, 0.741176, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xnfqo"]
+texture = ExtResource("4_wjs4o")
+modulate_color = Color(0.356863, 0.356863, 0.356863, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q6r6c"]
 texture = ExtResource("4_wjs4o")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_72q2g"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qs7lm"]
+texture = ExtResource("5_mc1i1")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+modulate_color = Color(0.741176, 0.741176, 0.741176, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kumpi"]
+texture = ExtResource("5_mc1i1")
+modulate_color = Color(0.356863, 0.356863, 0.356863, 1)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kdubu"]
 texture = ExtResource("5_mc1i1")
-
-[sub_resource type="Animation" id="Animation_72q2g"]
-resource_name = "start_classic"
-length = 0.4
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 2),
-"update": 0,
-"values": [Vector2(45, 80), Vector2(22.5, 44.035)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera2D:zoom")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(6.525, 6.525)]
-}
 
 [sub_resource type="Animation" id="Animation_mne4e"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera2D:position")
+tracks/0/path = NodePath("ClosingScenesPanels/Panel_Normal:theme_override_styles/panel:bg_color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(45, 80)]
+"values": [Color(0, 0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/path = NodePath("ClosingScenesPanels/Panel_Dirty:theme_override_styles/panel:modulate_color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_72q2g"]
+resource_name = "start_classic"
+length = 0.8
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ClosingScenesPanels/Panel_Normal:theme_override_styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wjs4o"]
+resource_name = "start_dirty"
+length = 0.8
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ClosingScenesPanels/Panel_Dirty:theme_override_styles/panel:modulate_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wjs4o"]
 _data = {
 &"RESET": SubResource("Animation_mne4e"),
-&"start_classic": SubResource("Animation_72q2g")
+&"start_classic": SubResource("Animation_72q2g"),
+&"start_dirty": SubResource("Animation_wjs4o")
 }
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mc1i1"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wgp5u"]
+texture = ExtResource("7_mne4e")
+modulate_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mne4e"]
+bg_color = Color(0, 0.367333, 0.38, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8rkvs"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_72q2g")
@@ -104,7 +178,9 @@ theme_override_constants/outline_size = 6
 theme_override_fonts/normal_font = ExtResource("1_wr0fo")
 theme_override_font_sizes/bold_italics_font_size = 3
 theme_override_font_sizes/normal_font_size = 9
-text = "ГОТОВ ЗА ПАРТИ!!!"
+bbcode_enabled = true
+text = "ГОТОВ ЗА ПАРТИ!!!
+[font_size=3][b]ГОТОВ ДА СЕ НАПИЕШ?"
 horizontal_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
@@ -123,6 +199,9 @@ columns = 2
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 theme_override_font_sizes/font_size = 5
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mne4e")
+theme_override_styles/hover = SubResource("StyleBoxTexture_72q2g")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mne4e")
 theme_override_styles/normal = SubResource("StyleBoxTexture_0e48y")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/GridContainer/Classic"]
@@ -147,6 +226,9 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 theme_override_font_sizes/font_size = 5
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wjs4o")
+theme_override_styles/hover = SubResource("StyleBoxTexture_wjs4o")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mc1i1")
 theme_override_styles/normal = SubResource("StyleBoxTexture_0hol4")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/GridContainer/Extreme"]
@@ -172,6 +254,9 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 theme_override_font_sizes/font_size = 5
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mc1i1")
+theme_override_styles/hover = SubResource("StyleBoxTexture_8rkvs")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xnfqo")
 theme_override_styles/normal = SubResource("StyleBoxTexture_q6r6c")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/GridContainer/Sexy"]
@@ -198,6 +283,9 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 theme_override_font_sizes/font_size = 5
+theme_override_styles/focus = SubResource("StyleBoxEmpty_72q2g")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qs7lm")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_kumpi")
 theme_override_styles/normal = SubResource("StyleBoxTexture_kdubu")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/GridContainer/Dirty"]
@@ -226,7 +314,123 @@ libraries = {
 &"": SubResource("AnimationLibrary_wjs4o")
 }
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(45, 80)
+[node name="ClosingScenesPanels" type="Node" parent="."]
+
+[node name="Panel_Normal" type="Panel" parent="ClosingScenesPanels"]
+offset_top = 19.0
+offset_right = 90.0
+offset_bottom = 141.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mc1i1")
+
+[node name="Panel_Dirty" type="Panel" parent="ClosingScenesPanels"]
+offset_top = 19.0
+offset_right = 90.0
+offset_bottom = 141.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_wgp5u")
+
+[node name="WarningPanel" type="Panel" parent="."]
+offset_left = 2.0
+offset_top = 5.0
+offset_right = 88.0
+offset_bottom = 155.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mne4e")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="WarningPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/bold_italics_font_size = 5
+theme_override_font_sizes/italics_font_size = 5
+theme_override_font_sizes/mono_font_size = 5
+theme_override_font_sizes/normal_font_size = 5
+theme_override_font_sizes/bold_font_size = 5
+bbcode_enabled = true
+text = "⚠️ [b]Предупреждение и информация[/b]
+
+• Тази игра е създадена с единствената цел да донесе забавление, смях и добри моменти сред приятели.
+Целта ѝ е всички да си прекарате чудесно заедно, но моля, имайте предвид следното:
+
+• Ако някое от предизвикателствата ви се струва твърде крайно, неудобно или неподходящо за вас или компанията ви – просто го пропусни без никакви притеснения.
+
+• Повечето предизвикателства включват консумация на алкохол.
+
+• В някои случаи може да срещнеш нецензурен, обиден или вулгарен език.
+
+• Ако сте под 18 години, моля напуснете приложението или играй само  използвайки безалкохолни напитки.
+
+[b]🕹️ Как се играе[/b]
+
+Играта е лесна и забавна:
+
+[b]1. [/b]Избери категория, която подхожда на вашата компания.
+[b]2. [/b]Въведи имената на участниците.
+[b]3. [/b]Изпълнявай предизвикателствата, показани на картите.
+[b]4. [/b]Ако откажеш да изпълниш някое, бъди готов за наказание!
+
+[b]🍹 Подготви се преди да започнете[/b]
+
+• Всеки играч трябва да има напитка.
+• Някои предизвикателства изискват шотове – може да ги подготвите предварително.
+• Освен напитки, може да са нужни и:
+[i]◦	стандартно тесте карти
+◦	зар
+◦	монета
+◦	кубчета лед[/i]
+
+[color=red]• В много предизвикателства наказанията включват пиене, а понякога употребата на алкохол е неизбежна, ако искате да следвате правилата.
+
+[b]⚠️ Играй отговорно![/b][/color]
+
+• Бъди внимателен с количеството алкохол.
+Ако не си сигурен колко можеш да поемеш, разреждай напитките си или намали градуса на алкохола, особено при шотове.
+
+[i]🎉 Тази игра е създадена само за забавление и за да прекарате приятно време с приятели.
+Играй разумно, забавлявай се отговорно и се погрижи всички да се чувстват добре![/i]
+
+[b]Наздраве и приятно прекарване! 🥂"
+
+[node name="PlayButton" type="Button" parent="WarningPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.186
+anchor_top = 0.9
+anchor_right = 0.814
+anchor_bottom = 0.98
+offset_left = 0.00399971
+offset_right = -0.0039978
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8rkvs")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="WarningPanel/PlayButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/bold_italics_font_size = 5
+theme_override_font_sizes/italics_font_size = 5
+theme_override_font_sizes/mono_font_size = 5
+theme_override_font_sizes/normal_font_size = 5
+theme_override_font_sizes/bold_font_size = 5
+bbcode_enabled = true
+text = "[b]Прочетох! Играя!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="button_down" from="ScrollContainer/GridContainer/Classic" to="." method="_on_classic_button_down"]
+[connection signal="button_down" from="ScrollContainer/GridContainer/Extreme" to="." method="_on_extreme_button_down"]
+[connection signal="button_down" from="ScrollContainer/GridContainer/Sexy" to="." method="_on_sexy_button_down"]
+[connection signal="button_down" from="ScrollContainer/GridContainer/Dirty" to="." method="_on_dirty_button_down"]
+[connection signal="button_down" from="WarningPanel/PlayButton" to="." method="_on_play_button_button_down"]

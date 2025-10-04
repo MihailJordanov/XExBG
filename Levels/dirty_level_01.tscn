@@ -1,12 +1,13 @@
-[gd_scene load_steps=29 format=3 uid="uid://cit2tnfxbaf1d"]
+[gd_scene load_steps=30 format=3 uid="uid://dtxnmetjnf1lt"]
 
-[ext_resource type="Script" uid="uid://cf41b8jt77c1x" path="res://Scripts/level_controller.gd" id="1_7nftj"]
-[ext_resource type="Texture2D" uid="uid://c1mjxs2guq7vq" path="res://Images/Icons/not_colored_icon.png" id="1_35vm2"]
-[ext_resource type="Script" uid="uid://du4nb7uo66pv3" path="res://Scripts/rich_text_label.gd" id="1_gyxq7"]
-[ext_resource type="Texture2D" uid="uid://dkfxts27gad41" path="res://Images/Borders/border_paty.png" id="4_vxx3b"]
+[ext_resource type="Script" uid="uid://cf41b8jt77c1x" path="res://Scripts/level_controller.gd" id="1_v1e4f"]
+[ext_resource type="Script" uid="uid://du4nb7uo66pv3" path="res://Scripts/rich_text_label.gd" id="2_jxptf"]
+[ext_resource type="Texture2D" uid="uid://dn2jwmk86qtyc" path="res://Images/Icons/openart-image_BYjQ1ix3_1733233078774_raw.jpg" id="3_v1e4f"]
+[ext_resource type="Texture2D" uid="uid://dkfxts27gad41" path="res://Images/Borders/border_paty.png" id="4_sbm40"]
+[ext_resource type="Texture2D" uid="uid://cr2j5hdfvqsyj" path="res://Images/Panels/dirty_icon_2.png" id="5_jxptf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35vm2"]
-bg_color = Color(0.584314, 1, 0, 1)
+bg_color = Color(0, 0, 0, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -20,7 +21,7 @@ shadow_size = 3
 shadow_offset = Vector2(-1.48, -0.17)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jgg6v"]
-bg_color = Color(0.607843, 1, 0.611765, 1)
+bg_color = Color(1, 1, 1, 1)
 border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 2
 corner_radius_top_right = 2
@@ -32,7 +33,7 @@ shadow_offset = Vector2(0, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gyxq7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wscug"]
-bg_color = Color(0.32549, 1, 0, 0.196078)
+bg_color = Color(0.2, 0.2, 0.2, 0.196078)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -44,7 +45,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nftj"]
-bg_color = Color(0.32549, 1, 0, 0.623529)
+bg_color = Color(0.14, 0, 0.0373333, 0.623529)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -58,11 +59,11 @@ shadow_size = 1
 shadow_offset = Vector2(0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vxx3b"]
-bg_color = Color(0.0980392, 1, 0, 0.623529)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
+bg_color = Color(0.11, 0, 0.033, 0.623529)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
 border_color = Color(0, 0, 0, 0.392157)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
@@ -72,7 +73,7 @@ shadow_size = 1
 shadow_offset = Vector2(0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gyxq7"]
-bg_color = Color(0.32549, 1, 0, 1)
+bg_color = Color(0.0823529, 0, 0.00784314, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -114,14 +115,14 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ClosingScenePanel:theme_override_styles/panel:bg_color")
+tracks/2/path = NodePath("ClosingScenePanel:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0, 0, 0, 0)]
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_wscug"]
@@ -130,14 +131,14 @@ length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ClosingScenePanel:theme_override_styles/panel:bg_color")
+tracks/0/path = NodePath("ClosingScenePanel:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.8),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_gyxq7"]
@@ -207,7 +208,7 @@ _data = {
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7nftj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xi3iv"]
-bg_color = Color(0.32549, 1, 0, 0.196078)
+bg_color = Color(0.32, 0, 0.0960001, 0.196078)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -228,21 +229,21 @@ corner_radius_bottom_left = 5
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vxx3b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytyi8"]
-bg_color = Color(0.129412, 0.784314, 0.188235, 1)
+bg_color = Color(1, 1, 1, 0.627451)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_heb4q"]
-bg_color = Color(0.0692797, 0.43562, 0.0968801, 1)
+bg_color = Color(1, 1, 1, 0.627451)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p4hge"]
-bg_color = Color(0.129412, 0.784314, 0.188235, 1)
+bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 7
 corner_radius_top_right = 7
 corner_radius_bottom_right = 7
@@ -251,31 +252,33 @@ corner_radius_bottom_left = 7
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wscug"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ah3cp"]
-bg_color = Color(0.937255, 0, 0.215686, 1)
+bg_color = Color(0.25098, 0.231373, 0.231373, 0.627451)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y0a1o"]
-bg_color = Color(0.464591, 0, 0.0867206, 1)
+bg_color = Color(0.25, 0.23, 0.23, 0.627451)
 corner_radius_top_left = 7
 corner_radius_top_right = 7
 corner_radius_bottom_right = 7
 corner_radius_bottom_left = 7
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vc3ea"]
-bg_color = Color(0.937255, 0, 0.215686, 1)
+bg_color = Color(0.25, 0.23, 0.232333, 1)
 corner_radius_top_left = 7
 corner_radius_top_right = 7
 corner_radius_bottom_right = 7
 corner_radius_bottom_left = 7
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7atl"]
-bg_color = Color(0, 0, 0, 0)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jd7yw"]
+texture = ExtResource("5_jxptf")
 
 [node name="ClassicLevel01" type="Node2D"]
-script = ExtResource("1_7nftj")
+script = ExtResource("1_v1e4f")
+is_classic_dare = false
+is_dirty_dare = true
 
 [node name="QuestionPanel" type="Panel" parent="."]
 offset_left = 4.0
@@ -299,7 +302,7 @@ theme_override_constants/outline_size = 1
 text = "Готови!"
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("1_gyxq7")
+script = ExtResource("2_jxptf")
 
 [node name="DareTypePanel" type="Panel" parent="QuestionPanel"]
 layout_mode = 1
@@ -340,13 +343,12 @@ offset_bottom = 160.0
 color = Color(0.498039, 1, 0, 1)
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-modulate = Color(0.498039, 1, 0, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_35vm2")
+texture = ExtResource("3_v1e4f")
 expand_mode = 1
 
 [node name="NextButton" type="Button" parent="."]
@@ -354,13 +356,13 @@ offset_left = 26.0
 offset_top = 56.0
 offset_right = 81.0
 offset_bottom = 72.0
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 9
 theme_override_styles/focus = SubResource("StyleBoxEmpty_gyxq7")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_wscug")
@@ -375,13 +377,13 @@ offset_left = 9.0
 offset_top = 56.0
 offset_right = 23.0
 offset_bottom = 72.0
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 9
 theme_override_styles/focus = SubResource("StyleBoxEmpty_gyxq7")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_wscug")
@@ -409,7 +411,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.6, 0.8, 0, 1)
+color = Color(0.23, 0.23, 0.23, 1)
 
 [node name="LineEdit" type="LineEdit" parent="EnterPlayerPanel"]
 layout_mode = 1
@@ -430,6 +432,7 @@ offset_left = 4.0
 offset_top = 60.0
 offset_right = 76.0
 offset_bottom = 126.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/bold_italics_font_size = 7
 theme_override_font_sizes/italics_font_size = 7
 theme_override_font_sizes/mono_font_size = 7
@@ -443,8 +446,8 @@ offset_left = 17.0
 offset_top = 1.0
 offset_right = 64.0
 offset_bottom = 6.0
-theme_override_colors/default_color = Color(1, 0, 0, 1)
-theme_override_colors/font_selected_color = Color(1, 0, 0, 1)
+theme_override_colors/default_color = Color(1, 0.525908, 0.460418, 1)
+theme_override_colors/font_selected_color = Color(1, 0.52549, 0.458824, 1)
 theme_override_constants/outline_size = 1
 theme_override_font_sizes/bold_italics_font_size = 3
 theme_override_font_sizes/italics_font_size = 3
@@ -461,7 +464,7 @@ vertical_alignment = 1
 [node name="Sprite2D" type="Sprite2D" parent="EnterPlayerPanel"]
 position = Vector2(40, 92.5)
 scale = Vector2(0.208333, 0.131532)
-texture = ExtResource("4_vxx3b")
+texture = ExtResource("4_sbm40")
 
 [node name="AddPlayerButton" type="Button" parent="EnterPlayerPanel"]
 layout_mode = 0
@@ -469,13 +472,13 @@ offset_left = 6.0
 offset_top = 40.0
 offset_right = 74.0
 offset_bottom = 54.0
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 8
 theme_override_styles/focus = SubResource("StyleBoxEmpty_gyxq7")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_xi3iv")
@@ -491,13 +494,13 @@ offset_left = 6.0
 offset_top = 130.0
 offset_right = 74.0
 offset_bottom = 144.0
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 8
 theme_override_styles/focus = SubResource("StyleBoxEmpty_gyxq7")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_xi3iv")
@@ -510,13 +513,13 @@ icon_alignment = 1
 [node name="BackButton" type="Button" parent="."]
 offset_right = 19.0
 offset_bottom = 8.0
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 3
 theme_override_styles/focus = SubResource("StyleBoxEmpty_gyxq7")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_xi3iv")
@@ -547,6 +550,7 @@ offset_right = -0.0359993
 offset_bottom = -0.00200272
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 7
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vxx3b")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ytyi8")
@@ -588,16 +592,17 @@ theme_override_font_sizes/mono_font_size = 7
 theme_override_font_sizes/normal_font_size = 7
 theme_override_font_sizes/bold_font_size = 7
 bbcode_enabled = true
-text = "[b]Недей си ходи е!"
+text = "[b]Остани с  мен! 💋"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ClosingScenePanel" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
 offset_top = 19.0
 offset_right = 90.0
 offset_bottom = 141.0
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_w7atl")
+theme_override_styles/panel = SubResource("StyleBoxTexture_jd7yw")
 
 [connection signal="button_down" from="BackButton" to="." method="_on_back_button_button_down"]
 [connection signal="button_down" from="ExitPanel/StayButton" to="." method="_on_stay_button_button_down"]

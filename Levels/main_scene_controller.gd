@@ -2,12 +2,11 @@ class_name MainSceneController extends Node2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var classic_button: Button = $ScrollContainer/GridContainer/Classic
+@onready var warning_panel: Panel = $WarningPanel
 
-
-
-
-
-
+func _ready() -> void:
+	if DareManager.is_warning_ready:
+		warning_panel.visible = false
 
 # Пусни анимация -> изчакай края -> смени сцената
 func play_anim_then_change_scene(anim_player: AnimationPlayer, anim: StringName, scene: Variant) -> void:
@@ -29,5 +28,21 @@ func play_anim_then_change_scene(anim_player: AnimationPlayer, anim: StringName,
 
 
 func _on_classic_button_down() -> void:
-	print("!!!")
 	play_anim_then_change_scene(animation_player, &"start_classic", "res://Levels/classic_level_01.tscn")
+
+
+func _on_extreme_button_down() -> void:
+	play_anim_then_change_scene(animation_player, &"start_classic", "res://Levels/extreme_level_01.tscn")
+
+
+func _on_sexy_button_down() -> void:
+	play_anim_then_change_scene(animation_player, &"start_classic", "res://Levels/sexy_level_01.tscn")
+	
+
+func _on_dirty_button_down() -> void:
+	play_anim_then_change_scene(animation_player, &"start_dirty", "res://Levels/dirty_level_01.tscn")
+
+
+func _on_play_button_button_down() -> void:
+	DareManager.is_warning_ready = true
+	warning_panel.visible = false

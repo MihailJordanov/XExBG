@@ -1,12 +1,12 @@
-[gd_scene load_steps=29 format=3 uid="uid://cit2tnfxbaf1d"]
+[gd_scene load_steps=29 format=3 uid="uid://t4nbvvkf0v3d"]
 
-[ext_resource type="Script" uid="uid://cf41b8jt77c1x" path="res://Scripts/level_controller.gd" id="1_7nftj"]
-[ext_resource type="Texture2D" uid="uid://c1mjxs2guq7vq" path="res://Images/Icons/not_colored_icon.png" id="1_35vm2"]
-[ext_resource type="Script" uid="uid://du4nb7uo66pv3" path="res://Scripts/rich_text_label.gd" id="1_gyxq7"]
-[ext_resource type="Texture2D" uid="uid://dkfxts27gad41" path="res://Images/Borders/border_paty.png" id="4_vxx3b"]
+[ext_resource type="Script" uid="uid://cf41b8jt77c1x" path="res://Scripts/level_controller.gd" id="1_wk4jv"]
+[ext_resource type="Script" uid="uid://du4nb7uo66pv3" path="res://Scripts/rich_text_label.gd" id="2_fvxpl"]
+[ext_resource type="Texture2D" uid="uid://c1mjxs2guq7vq" path="res://Images/Icons/not_colored_icon.png" id="3_t04vi"]
+[ext_resource type="Texture2D" uid="uid://dkfxts27gad41" path="res://Images/Borders/border_paty.png" id="4_4p3h0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35vm2"]
-bg_color = Color(0.584314, 1, 0, 1)
+bg_color = Color(0, 1, 0.972549, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -20,7 +20,7 @@ shadow_size = 3
 shadow_offset = Vector2(-1.48, -0.17)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jgg6v"]
-bg_color = Color(0.607843, 1, 0.611765, 1)
+bg_color = Color(0.560784, 0.870588, 1, 1)
 border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 2
 corner_radius_top_right = 2
@@ -32,7 +32,7 @@ shadow_offset = Vector2(0, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gyxq7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wscug"]
-bg_color = Color(0.32549, 1, 0, 0.196078)
+bg_color = Color(0.0784314, 0.811765, 0.972549, 0.196078)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -44,7 +44,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nftj"]
-bg_color = Color(0.32549, 1, 0, 0.623529)
+bg_color = Color(0.0784314, 0.811765, 0.972549, 0.623529)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -58,7 +58,7 @@ shadow_size = 1
 shadow_offset = Vector2(0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vxx3b"]
-bg_color = Color(0.0980392, 1, 0, 0.623529)
+bg_color = Color(0.0784314, 0.811765, 0.972549, 0.623529)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -72,7 +72,7 @@ shadow_size = 1
 shadow_offset = Vector2(0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gyxq7"]
-bg_color = Color(0.32549, 1, 0, 1)
+bg_color = Color(0.0784314, 0.811765, 0.972549, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -207,7 +207,7 @@ _data = {
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7nftj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xi3iv"]
-bg_color = Color(0.32549, 1, 0, 0.196078)
+bg_color = Color(0.0784314, 0.811765, 0.972549, 0.196078)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -275,7 +275,9 @@ corner_radius_bottom_left = 7
 bg_color = Color(0, 0, 0, 0)
 
 [node name="ClassicLevel01" type="Node2D"]
-script = ExtResource("1_7nftj")
+script = ExtResource("1_wk4jv")
+is_classic_dare = false
+is_extreme_dare = true
 
 [node name="QuestionPanel" type="Panel" parent="."]
 offset_left = 4.0
@@ -299,7 +301,7 @@ theme_override_constants/outline_size = 1
 text = "Готови!"
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("1_gyxq7")
+script = ExtResource("2_fvxpl")
 
 [node name="DareTypePanel" type="Panel" parent="QuestionPanel"]
 layout_mode = 1
@@ -337,16 +339,16 @@ layer = -30
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 offset_right = 90.0
 offset_bottom = 160.0
-color = Color(0.498039, 1, 0, 1)
+color = Color(0.0784314, 0.811765, 0.972549, 1)
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-modulate = Color(0.498039, 1, 0, 1)
+modulate = Color(0.537255, 1, 0.972549, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_35vm2")
+texture = ExtResource("3_t04vi")
 expand_mode = 1
 
 [node name="NextButton" type="Button" parent="."]
@@ -409,7 +411,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.6, 0.8, 0, 1)
+color = Color(0.298039, 0.972549, 0.964706, 1)
 
 [node name="LineEdit" type="LineEdit" parent="EnterPlayerPanel"]
 layout_mode = 1
@@ -461,7 +463,7 @@ vertical_alignment = 1
 [node name="Sprite2D" type="Sprite2D" parent="EnterPlayerPanel"]
 position = Vector2(40, 92.5)
 scale = Vector2(0.208333, 0.131532)
-texture = ExtResource("4_vxx3b")
+texture = ExtResource("4_4p3h0")
 
 [node name="AddPlayerButton" type="Button" parent="EnterPlayerPanel"]
 layout_mode = 0
