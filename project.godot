@@ -25,3 +25,8 @@ window/size/viewport_height=160
 window/size/window_width_override=416
 window/size/window_height_override=832
 window/stretch/mode="canvas_items"
+window/handheld/orientation=1
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true

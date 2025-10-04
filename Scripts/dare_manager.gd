@@ -1,7 +1,7 @@
 # DareManager.gd
 extends Node
 
-const SAVE_PATH := "user://save.sav"
+const SAVE_PATH :=  "res://data/save.json" #"user://save.sav"
 var is_warning_ready = false
 
 # Работим само с категории (без под-ключове)
