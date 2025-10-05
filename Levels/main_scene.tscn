@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://kf1fvj5u34w5"]
+[gd_scene load_steps=41 format=3 uid="uid://kf1fvj5u34w5"]
 
 [ext_resource type="Script" uid="uid://dejyobwq80sg7" path="res://Levels/main_scene_controller.gd" id="1_72q2g"]
 [ext_resource type="FontFile" uid="uid://bcjx4bib6qgco" path="res://Fonts/ZeroCool.otf" id="1_wr0fo"]
@@ -7,6 +7,17 @@
 [ext_resource type="Texture2D" uid="uid://6spq644xe7ec" path="res://Images/BG/love_bg.png" id="4_wjs4o"]
 [ext_resource type="Texture2D" uid="uid://h3vcxw0h6ijr" path="res://Images/BG/dirty_bg.png" id="5_mc1i1"]
 [ext_resource type="Texture2D" uid="uid://cr2j5hdfvqsyj" path="res://Images/Panels/dirty_icon_2.png" id="7_mne4e"]
+
+[sub_resource type="Gradient" id="Gradient_mne4e"]
+offsets = PackedFloat32Array(0.054878, 0.509146, 0.963415)
+colors = PackedColorArray(0.784314, 0.568627, 1, 1, 0.971471, 0.96917, 0.673714, 1, 0.172549, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wjs4o"]
+gradient = SubResource("Gradient_mne4e")
+fill_from = Vector2(0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vdof2"]
+texture = SubResource("GradientTexture2D_wjs4o")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mne4e"]
 
@@ -25,6 +36,14 @@ modulate_color = Color(0.355314, 0.355314, 0.355314, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0e48y"]
 texture = ExtResource("2_72q2g")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wjs4o"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wjs4o"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wjs4o"]
@@ -40,6 +59,14 @@ modulate_color = Color(0.356863, 0.356863, 0.356863, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0hol4"]
 texture = ExtResource("3_mne4e")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8rkvs"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mc1i1"]
 
@@ -58,6 +85,14 @@ modulate_color = Color(0.356863, 0.356863, 0.356863, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q6r6c"]
 texture = ExtResource("4_wjs4o")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xnfqo"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_72q2g"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qs7lm"]
@@ -75,53 +110,109 @@ modulate_color = Color(0.356863, 0.356863, 0.356863, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kdubu"]
 texture = ExtResource("5_mc1i1")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qs7lm"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Shader" id="Shader_v64op"]
+code = "shader_type canvas_item;
+
+uniform vec4 color_a : source_color = vec4(1.0, 0.5, 1.0, 1.0);
+uniform vec4 color_b : source_color = vec4(0.5, 1.0, 1.0, 1.0);
+uniform float mix_amount : hint_range(0.0, 1.0) = 0.0;
+uniform float angle = 0.0; // радиани — посока на градиента
+
+void fragment() {
+    vec2 uv = UV - 0.5;
+
+    // матрица за завъртане на координатите
+    mat2 rot = mat2(
+        vec2(cos(angle), -sin(angle)),
+        vec2(sin(angle),  cos(angle))
+    );
+
+    uv = rot * uv + 0.5;
+
+    float t = smoothstep(0.0, 1.0, uv.x + mix_amount);
+    COLOR = mix(color_a, color_b, t);
+}
+"
+
 [sub_resource type="Animation" id="Animation_mne4e"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ClosingScenesPanels/Panel_Normal:theme_override_styles/panel:bg_color")
+tracks/0/path = NodePath("CanvasLayer/Panel:material:shader")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0)]
+"update": 1,
+"values": [SubResource("Shader_v64op")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ClosingScenesPanels/Panel_Dirty:theme_override_styles/panel:modulate_color")
+tracks/1/path = NodePath("ClosingScenesPanels/Panel_Normal:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ClosingScenesPanels/Panel_Dirty:theme_override_styles/panel:modulate_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
 "values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ClosingScenesPanels/Panel_Normal:theme_override_styles/panel:bg_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_72q2g"]
 resource_name = "start_classic"
-length = 0.8
+length = 0.4
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ClosingScenesPanels/Panel_Normal:theme_override_styles/panel:bg_color")
+tracks/0/path = NodePath("ClosingScenesPanels/Panel_Normal:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.8),
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+"values": [Vector2(-90, 0), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_wjs4o"]
 resource_name = "start_dirty"
-length = 0.8
+length = 0.4
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -130,21 +221,50 @@ tracks/0/path = NodePath("ClosingScenesPanels/Panel_Dirty:theme_override_styles/
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.8),
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_mc1i1"]
+resource_name = "opening_scene"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ClosingScenesPanels/Panel_Normal:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ClosingScenesPanels/Panel_Normal:theme_override_styles/panel:bg_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wjs4o"]
 _data = {
 &"RESET": SubResource("Animation_mne4e"),
+&"opening_scene": SubResource("Animation_mc1i1"),
 &"start_classic": SubResource("Animation_72q2g"),
 &"start_dirty": SubResource("Animation_wjs4o")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mc1i1"]
-bg_color = Color(0, 0, 0, 0)
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wgp5u"]
 texture = ExtResource("7_mne4e")
@@ -161,10 +281,14 @@ script = ExtResource("1_72q2g")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -30
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_right = 90.0
-offset_bottom = 160.0
-color = Color(0.25098, 0.878431, 0.815686, 1)
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vdof2")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 anchors_preset = 5
@@ -222,6 +346,16 @@ text = "[b]Класически"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="BorderPanel" type="Panel" parent="ScrollContainer/GridContainer/Classic"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wjs4o")
+
 [node name="Extreme" type="Button" parent="ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
@@ -249,6 +383,16 @@ text = "[b]Екстремни
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="BorderPanel" type="Panel" parent="ScrollContainer/GridContainer/Extreme"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8rkvs")
 
 [node name="Sexy" type="Button" parent="ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(40, 40)
@@ -278,6 +422,16 @@ text = "[b]Луди
 Диви"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="BorderPanel" type="Panel" parent="ScrollContainer/GridContainer/Sexy"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xnfqo")
 
 [node name="Dirty" type="Button" parent="ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(40, 40)
@@ -309,6 +463,16 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="BorderPanel" type="Panel" parent="ScrollContainer/GridContainer/Dirty"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qs7lm")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_wjs4o")
@@ -317,20 +481,19 @@ libraries = {
 [node name="ClosingScenesPanels" type="Node" parent="."]
 
 [node name="Panel_Normal" type="Panel" parent="ClosingScenesPanels"]
-offset_top = 19.0
 offset_right = 90.0
-offset_bottom = 141.0
+offset_bottom = 160.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_mc1i1")
 
 [node name="Panel_Dirty" type="Panel" parent="ClosingScenesPanels"]
-offset_top = 19.0
 offset_right = 90.0
-offset_bottom = 141.0
+offset_bottom = 160.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_wgp5u")
 
 [node name="WarningPanel" type="Panel" parent="."]
+visible = false
 offset_left = 2.0
 offset_top = 5.0
 offset_right = 88.0

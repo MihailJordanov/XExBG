@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bhfst7er70an7"]
+[gd_scene load_steps=31 format=3 uid="uid://bhfst7er70an7"]
 
 [ext_resource type="Script" uid="uid://cf41b8jt77c1x" path="res://Scripts/level_controller.gd" id="1_iw7on"]
 [ext_resource type="Script" uid="uid://du4nb7uo66pv3" path="res://Scripts/rich_text_label.gd" id="2_anqe6"]
@@ -85,6 +85,22 @@ corner_radius_bottom_left = 3
 shadow_size = 1
 shadow_offset = Vector2(0, 1)
 
+[sub_resource type="Animation" id="Animation_iw7on"]
+resource_name = "LineEdit_glow"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnterPlayerPanel/LineEdit:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.575), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_7nftj"]
 length = 0.001
 tracks/0/type = "value"
@@ -114,30 +130,30 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ClosingScenePanel:theme_override_styles/panel:bg_color")
+tracks/2/path = NodePath("ClosingScenePanel:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0, 0, 0, 0)]
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_wscug"]
 resource_name = "back_to_main"
-length = 0.8
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ClosingScenePanel:theme_override_styles/panel:bg_color")
+tracks/0/path = NodePath("ClosingScenePanel:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.8),
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+"values": [Vector2(90, 0), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_gyxq7"]
@@ -196,20 +212,20 @@ tracks/1/keys = {
 "values": [0.0, 1.5708, 0.0]
 }
 
-[sub_resource type="Animation" id="Animation_iw7on"]
-resource_name = "LineEdit_glow"
-length = 0.1
+[sub_resource type="Animation" id="Animation_anqe6"]
+resource_name = "opening_scene"
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("EnterPlayerPanel/LineEdit:modulate")
+tracks/0/path = NodePath("ClosingScenePanel:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.575), Color(1, 1, 1, 1)]
+"values": [Vector2(0, 0), Vector2(90, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vxx3b"]
@@ -218,6 +234,7 @@ _data = {
 &"RESET": SubResource("Animation_7nftj"),
 &"back_to_main": SubResource("Animation_wscug"),
 &"next_question": SubResource("Animation_gyxq7"),
+&"opening_scene": SubResource("Animation_anqe6"),
 &"prev_question": SubResource("Animation_vxx3b")
 }
 
@@ -289,7 +306,7 @@ corner_radius_bottom_right = 7
 corner_radius_bottom_left = 7
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7atl"]
-bg_color = Color(0, 0, 0, 0)
+bg_color = Color(0, 0, 0, 1)
 
 [node name="ClassicLevel01" type="Node2D"]
 script = ExtResource("1_iw7on")
@@ -612,9 +629,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ClosingScenePanel" type="Panel" parent="."]
-offset_top = 19.0
 offset_right = 90.0
-offset_bottom = 141.0
+offset_bottom = 160.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_w7atl")
 

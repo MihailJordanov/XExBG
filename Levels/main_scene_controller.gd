@@ -5,6 +5,7 @@ class_name MainSceneController extends Node2D
 @onready var warning_panel: Panel = $WarningPanel
 
 func _ready() -> void:
+	animation_player.play("opening_scene")
 	if DareManager.is_warning_ready:
 		warning_panel.visible = false
 

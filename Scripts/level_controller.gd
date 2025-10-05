@@ -41,6 +41,9 @@ const NEXT_ANIM : StringName = &"next_question"
 const PREV_ANIM : StringName = &"prev_question"
 
 func _ready() -> void:
+	
+	animation_player.play("opening_scene")
+	
 	next_button.pressed.connect(_on_next_pressed)
 	prev_button.pressed.connect(_on_prev_pressed)
 	add_player_button.pressed.connect(_on_add_pressed)
