@@ -1,7 +1,10 @@
 # DareManager.gd
 extends Node
 
-const SAVE_PATH :=  "res://data/save.json" #"user://save.sav"
+#"user://save.sav"
+const DEFAULT_SAVE_PATH := "res://data/save.json"  # вътре в проекта (влиза в .aab)
+const SAVE_PATH := "user://save.json"              # истинският сейв на устройството
+
 var is_warning_ready = false
 
 # Работим само с категории (без под-ключове)
@@ -11,19 +14,38 @@ const CATEGORY_KEYS := [
 	"sexy_dares",
 	"dirty_dares",
 ]
-
+	
 var current_save: Dictionary = {}
 
 func _init() -> void:
 	current_save = _default_save()
 	
 func _ready() -> void:
-	# опитай да заредиш сейва веднага щом автолоудът тръгне
+	_ensure_user_save()
 	var ok := load_dares()
 	if ok:
 		print("[DareManager] Save loaded.")
 	else:
 		print("[DareManager] No save found -> using defaults.")
+
+func _ensure_user_save() -> void:
+	# Ако няма user сейв, копирай дефолтния от res://
+	if not FileAccess.file_exists(SAVE_PATH):
+		if FileAccess.file_exists(DEFAULT_SAVE_PATH):
+			var src := FileAccess.open(DEFAULT_SAVE_PATH, FileAccess.READ)
+			var buf := src.get_buffer(src.get_length())
+			src.close()
+
+			var dst := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+			if dst == null:
+				push_error("Cannot write user save: " + str(FileAccess.get_open_error()))
+				return
+			dst.store_buffer(buf)
+			dst.close()
+			print("[DareManager] Default save copied to user://")
+		else:
+			push_warning("[DareManager] DEFAULT not found in res:// (check export filters).")
+
 
 # ---------- Defaults ----------
 func _default_save() -> Dictionary:
@@ -72,11 +94,11 @@ func get_all_categories() -> Dictionary:
 
 # ---------- Save / Load ----------
 func save_dares() -> bool:
-	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
-	if file == null:
-		push_error("Save failed: %s" % FileAccess.get_open_error())
+	var f := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+	if f == null:
+		push_error("Save failed: " + str(FileAccess.get_open_error()))
 		return false
-	file.store_string(JSON.stringify(current_save))
+	f.store_string(JSON.stringify(current_save))
 	return true
 
 func load_dares() -> bool:
@@ -84,13 +106,13 @@ func load_dares() -> bool:
 		current_save = _default_save()
 		return false
 
-	var file := FileAccess.open(SAVE_PATH, FileAccess.READ)
-	if file == null:
-		push_error("Load failed: %s" % FileAccess.get_open_error())
+	var f := FileAccess.open(SAVE_PATH, FileAccess.READ)
+	if f == null:
+		push_error("Load failed: " + str(FileAccess.get_open_error()))
 		current_save = _default_save()
 		return false
 
-	var text := file.get_as_text()
+	var text := f.get_as_text()
 	var data = JSON.parse_string(text)
 	if typeof(data) != TYPE_DICTIONARY:
 		push_warning("Save corrupted; using defaults.")
@@ -99,6 +121,7 @@ func load_dares() -> bool:
 
 	current_save = _normalize_loaded(data)
 	return true
+
 
 # ---------- Helpers ----------
 # Приема както новия плосък формат, така и стария (с под-ключове), и връща плосък.

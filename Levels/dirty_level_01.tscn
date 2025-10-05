@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dtxnmetjnf1lt"]
+[gd_scene load_steps=31 format=3 uid="uid://dtxnmetjnf1lt"]
 
 [ext_resource type="Script" uid="uid://cf41b8jt77c1x" path="res://Scripts/level_controller.gd" id="1_v1e4f"]
 [ext_resource type="Script" uid="uid://du4nb7uo66pv3" path="res://Scripts/rich_text_label.gd" id="2_jxptf"]
@@ -197,8 +197,25 @@ tracks/1/keys = {
 "values": [0.0, 1.5708, 0.0]
 }
 
+[sub_resource type="Animation" id="Animation_jxptf"]
+resource_name = "LineEdit_glow"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnterPlayerPanel/LineEdit:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.575), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vxx3b"]
 _data = {
+&"LineEdit_glow": SubResource("Animation_jxptf"),
 &"RESET": SubResource("Animation_7nftj"),
 &"back_to_main": SubResource("Animation_wscug"),
 &"next_question": SubResource("Animation_gyxq7"),

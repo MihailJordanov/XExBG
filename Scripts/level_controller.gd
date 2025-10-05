@@ -241,6 +241,7 @@ func _set_buttons_disabled(disabled: bool) -> void:
 
 # ---------- ИГРАЧИ ----------
 func _on_add_pressed() -> void:
+	animation_player.play("LineEdit_glow")
 	_add_current_player()
 
 func _on_text_submitted(_text: String) -> void:
