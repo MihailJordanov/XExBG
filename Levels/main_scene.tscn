@@ -1,12 +1,14 @@
-[gd_scene load_steps=41 format=3 uid="uid://kf1fvj5u34w5"]
+[gd_scene load_steps=61 format=3 uid="uid://kf1fvj5u34w5"]
 
 [ext_resource type="Script" uid="uid://dejyobwq80sg7" path="res://Levels/main_scene_controller.gd" id="1_72q2g"]
 [ext_resource type="FontFile" uid="uid://bcjx4bib6qgco" path="res://Fonts/ZeroCool.otf" id="1_wr0fo"]
-[ext_resource type="Texture2D" uid="uid://com1r2le8cmgv" path="res://Images/BG/classic_bg.png" id="2_72q2g"]
-[ext_resource type="Texture2D" uid="uid://bb7sgsexmpdyv" path="res://Images/BG/extreme_bg.png" id="3_mne4e"]
-[ext_resource type="Texture2D" uid="uid://6spq644xe7ec" path="res://Images/BG/love_bg.png" id="4_wjs4o"]
-[ext_resource type="Texture2D" uid="uid://h3vcxw0h6ijr" path="res://Images/BG/dirty_bg.png" id="5_mc1i1"]
+[ext_resource type="Texture2D" uid="uid://com1r2le8cmgv" path="res://Images/Buttons/classic_bg.png" id="2_72q2g"]
+[ext_resource type="Texture2D" uid="uid://bb7sgsexmpdyv" path="res://Images/Buttons/extreme_bg.png" id="3_mne4e"]
+[ext_resource type="Texture2D" uid="uid://6spq644xe7ec" path="res://Images/Buttons/love_bg.png" id="4_wjs4o"]
+[ext_resource type="Texture2D" uid="uid://h3vcxw0h6ijr" path="res://Images/Buttons/dirty_bg.png" id="5_mc1i1"]
 [ext_resource type="Texture2D" uid="uid://cr2j5hdfvqsyj" path="res://Images/Panels/dirty_icon_2.png" id="7_mne4e"]
+[ext_resource type="Texture2D" uid="uid://f2pujv2srduk" path="res://Images/Buttons/your_dares_bg.png" id="7_wjs4o"]
+[ext_resource type="Texture2D" uid="uid://c4ffcomu5nwuj" path="res://Images/Buttons/close_2.png" id="9_mc1i1"]
 
 [sub_resource type="Gradient" id="Gradient_mne4e"]
 offsets = PackedFloat32Array(0.054878, 0.509146, 0.963415)
@@ -111,6 +113,31 @@ modulate_color = Color(0.356863, 0.356863, 0.356863, 1)
 texture = ExtResource("5_mc1i1")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qs7lm"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xnfqo"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v64op"]
+texture = ExtResource("7_wjs4o")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+modulate_color = Color(0.741176, 0.741176, 0.741176, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h3qna"]
+texture = ExtResource("7_wjs4o")
+modulate_color = Color(0.356863, 0.356863, 0.356863, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_srusp"]
+texture = ExtResource("7_wjs4o")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1dybb"]
 bg_color = Color(0, 0, 0, 0)
 border_width_left = 1
 border_width_top = 1
@@ -237,6 +264,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(-90, 0), Vector2(0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ClosingScenesPanels/Panel_Normal:theme_override_styles/panel:bg_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_wjs4o"]
 resource_name = "start_dirty"
@@ -274,6 +313,103 @@ modulate_color = Color(1, 1, 1, 0)
 bg_color = Color(0, 0.367333, 0.38, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8rkvs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kumpi"]
+bg_color = Color(0, 0, 0, 0.796078)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yfwm6"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qs7lm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nm3d2"]
+bg_color = Color(0.0117647, 0.870588, 0.6, 0.784314)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0627451, 0.0627451, 0.0627451, 0.862745)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v64op"]
+bg_color = Color(0.0117647, 0.870588, 0.6, 0.627451)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0627451, 0.0627451, 0.0627451, 0.862745)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wgp5u"]
+bg_color = Color(0.0117647, 0.870588, 0.6, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0627451, 0.0627451, 0.0627451, 0.862745)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_srusp"]
+bg_color = Color(0.0117647, 0.6, 0.6, 0.784314)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0627451, 0.0627451, 0.0627451, 0.862745)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3qna"]
+bg_color = Color(0.0117647, 0.6, 0.6, 0.627451)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0627451, 0.0627451, 0.0627451, 0.862745)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vdof2"]
+bg_color = Color(0.0117647, 0.6, 0.6, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0627451, 0.0627451, 0.0627451, 0.862745)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kumpi"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nm3d2"]
+texture = ExtResource("9_mc1i1")
+modulate_color = Color(1, 1, 1, 0.784314)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yfwm6"]
+texture = ExtResource("9_mc1i1")
+modulate_color = Color(1, 1, 1, 0.627451)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1dybb"]
+texture = ExtResource("9_mc1i1")
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_72q2g")
@@ -473,6 +609,45 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qs7lm")
 
+[node name="UserDares" type="Button" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xnfqo")
+theme_override_styles/hover = SubResource("StyleBoxTexture_v64op")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_h3qna")
+theme_override_styles/normal = SubResource("StyleBoxTexture_srusp")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/GridContainer/UserDares"]
+layout_mode = 0
+offset_top = 31.0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/bold_italics_font_size = 5
+theme_override_font_sizes/italics_font_size = 5
+theme_override_font_sizes/mono_font_size = 5
+theme_override_font_sizes/normal_font_size = 5
+theme_override_font_sizes/bold_font_size = 5
+bbcode_enabled = true
+text = "[b]Твоите идеи"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BorderPanel" type="Panel" parent="ScrollContainer/GridContainer/UserDares"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1dybb")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_wjs4o")
@@ -591,8 +766,89 @@ text = "[b]Прочетох! Играя!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="UserDaresChoicePanel" type="Panel" parent="."]
+visible = false
+offset_left = 1.0
+offset_top = 24.0
+offset_right = 89.0
+offset_bottom = 131.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kumpi")
+
+[node name="DisableButtonsPanel" type="Panel" parent="UserDaresChoicePanel"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -29.0
+offset_right = 89.0
+offset_bottom = 131.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yfwm6")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UserDaresChoicePanel"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 9.0
+offset_right = 86.0
+offset_bottom = 38.0
+theme_override_font_sizes/bold_italics_font_size = 6
+theme_override_font_sizes/italics_font_size = 6
+theme_override_font_sizes/mono_font_size = 6
+theme_override_font_sizes/normal_font_size = 6
+theme_override_font_sizes/bold_font_size = 6
+bbcode_enabled = true
+text = "[b]Човек кво'т сам си направи, никой друг не може да му го направи![/b]"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UserDaresChoicePanel"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 43.0
+offset_right = 86.0
+offset_bottom = 95.0
+
+[node name="Play" type="Button" parent="UserDaresChoicePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 7
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qs7lm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nm3d2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v64op")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wgp5u")
+text = "Играй на твоите
+ предизвикателства"
+
+[node name="Create" type="Button" parent="UserDaresChoicePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 7
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qs7lm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_srusp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h3qna")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vdof2")
+text = "Създай твоите
+ предизвикателства"
+
+[node name="CloseButton" type="Button" parent="UserDaresChoicePanel"]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 3.0
+offset_right = 85.0
+offset_bottom = 10.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kumpi")
+theme_override_styles/hover = SubResource("StyleBoxTexture_nm3d2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yfwm6")
+theme_override_styles/normal = SubResource("StyleBoxTexture_1dybb")
+
 [connection signal="button_down" from="ScrollContainer/GridContainer/Classic" to="." method="_on_classic_button_down"]
 [connection signal="button_down" from="ScrollContainer/GridContainer/Extreme" to="." method="_on_extreme_button_down"]
 [connection signal="button_down" from="ScrollContainer/GridContainer/Sexy" to="." method="_on_sexy_button_down"]
 [connection signal="button_down" from="ScrollContainer/GridContainer/Dirty" to="." method="_on_dirty_button_down"]
+[connection signal="button_down" from="ScrollContainer/GridContainer/UserDares" to="." method="_on_user_dares_button_down"]
 [connection signal="button_down" from="WarningPanel/PlayButton" to="." method="_on_play_button_button_down"]
+[connection signal="button_down" from="UserDaresChoicePanel/CloseButton" to="." method="_on_close_button_user_dares_choice_panel_down"]

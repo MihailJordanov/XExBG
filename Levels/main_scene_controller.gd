@@ -3,6 +3,7 @@ class_name MainSceneController extends Node2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var classic_button: Button = $ScrollContainer/GridContainer/Classic
 @onready var warning_panel: Panel = $WarningPanel
+@onready var user_dares_choice_panel: Panel = $UserDaresChoicePanel
 
 func _ready() -> void:
 	animation_player.play("opening_scene")
@@ -47,3 +48,11 @@ func _on_dirty_button_down() -> void:
 func _on_play_button_button_down() -> void:
 	DareManager.is_warning_ready = true
 	warning_panel.visible = false
+
+
+func _on_user_dares_button_down() -> void:
+	user_dares_choice_panel.visible = true
+
+
+func _on_close_button_user_dares_choice_panel_down() -> void:
+	user_dares_choice_panel.visible = false

@@ -13,7 +13,9 @@ const CATEGORY_KEYS := [
 	"extreme_dares",
 	"sexy_dares",
 	"dirty_dares",
+	"user_dares"
 ]
+
 	
 var current_save: Dictionary = {}
 

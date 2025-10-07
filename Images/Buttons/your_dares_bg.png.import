@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb7sgsexmpdyv"
-path="res://.godot/imported/extreme_bg.png-9c64257d55f73ebea9c28155741aca47.ctex"
+uid="uid://f2pujv2srduk"
+path="res://.godot/imported/your_dares_bg.png-b00dd426858fbec7b69511328bb65b14.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/BG/extreme_bg.png"
-dest_files=["res://.godot/imported/extreme_bg.png-9c64257d55f73ebea9c28155741aca47.ctex"]
+source_file="res://Images/Buttons/your_dares_bg.png"
+dest_files=["res://.godot/imported/your_dares_bg.png-b00dd426858fbec7b69511328bb65b14.ctex"]
 
 [params]
 

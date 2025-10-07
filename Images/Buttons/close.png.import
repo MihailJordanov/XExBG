@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6spq644xe7ec"
-path="res://.godot/imported/love_bg.png-9faf4ff1214339510ef0c9dffef7ea64.ctex"
+uid="uid://d3ld3c1b8bo5o"
+path="res://.godot/imported/close.png-b50e58de528c865251320f8b9394eb63.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/BG/love_bg.png"
-dest_files=["res://.godot/imported/love_bg.png-9faf4ff1214339510ef0c9dffef7ea64.ctex"]
+source_file="res://Images/Buttons/close.png"
+dest_files=["res://.godot/imported/close.png-b50e58de528c865251320f8b9394eb63.ctex"]
 
 [params]
 
