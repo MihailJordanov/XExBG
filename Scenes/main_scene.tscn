@@ -1,6 +1,6 @@
 [gd_scene load_steps=61 format=3 uid="uid://kf1fvj5u34w5"]
 
-[ext_resource type="Script" uid="uid://dejyobwq80sg7" path="res://Levels/main_scene_controller.gd" id="1_72q2g"]
+[ext_resource type="Script" uid="uid://dejyobwq80sg7" path="res://Scenes/main_scene_controller.gd" id="1_72q2g"]
 [ext_resource type="FontFile" uid="uid://bcjx4bib6qgco" path="res://Fonts/ZeroCool.otf" id="1_wr0fo"]
 [ext_resource type="Texture2D" uid="uid://com1r2le8cmgv" path="res://Images/Buttons/classic_bg.png" id="2_72q2g"]
 [ext_resource type="Texture2D" uid="uid://bb7sgsexmpdyv" path="res://Images/Buttons/extreme_bg.png" id="3_mne4e"]
@@ -327,7 +327,7 @@ bg_color = Color(0, 0, 0, 0)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qs7lm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nm3d2"]
-bg_color = Color(0.0117647, 0.870588, 0.6, 0.784314)
+bg_color = Color(0.541176, 0.541176, 0.541176, 0.784314)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -339,7 +339,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v64op"]
-bg_color = Color(0.0117647, 0.870588, 0.6, 0.627451)
+bg_color = Color(0.54099, 0.54099, 0.54099, 0.627451)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -351,7 +351,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wgp5u"]
-bg_color = Color(0.0117647, 0.870588, 0.6, 1)
+bg_color = Color(1, 1, 1, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -363,7 +363,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_srusp"]
-bg_color = Color(0.0117647, 0.6, 0.6, 0.784314)
+bg_color = Color(0.541176, 0.541176, 0.541176, 0.784314)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -375,7 +375,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3qna"]
-bg_color = Color(0.0117647, 0.6, 0.6, 0.627451)
+bg_color = Color(0.541176, 0.541176, 0.541176, 0.627451)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -387,7 +387,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vdof2"]
-bg_color = Color(0.0117647, 0.6, 0.6, 1)
+bg_color = Color(1, 1, 1, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -633,7 +633,7 @@ theme_override_font_sizes/mono_font_size = 5
 theme_override_font_sizes/normal_font_size = 5
 theme_override_font_sizes/bold_font_size = 5
 bbcode_enabled = true
-text = "[b]Твоите идеи"
+text = "[b]Твоята игра"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -656,6 +656,7 @@ libraries = {
 [node name="ClosingScenesPanels" type="Node" parent="."]
 
 [node name="Panel_Normal" type="Panel" parent="ClosingScenesPanels"]
+visible = false
 offset_right = 90.0
 offset_bottom = 160.0
 mouse_filter = 2
@@ -668,6 +669,7 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_wgp5u")
 
 [node name="WarningPanel" type="Panel" parent="."]
+visible = false
 offset_left = 2.0
 offset_top = 5.0
 offset_right = 88.0
@@ -769,7 +771,7 @@ vertical_alignment = 1
 [node name="UserDaresChoicePanel" type="Panel" parent="."]
 visible = false
 offset_left = 1.0
-offset_top = 24.0
+offset_top = 22.0
 offset_right = 89.0
 offset_bottom = 131.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_kumpi")
@@ -805,13 +807,14 @@ offset_right = 86.0
 offset_bottom = 95.0
 
 [node name="Play" type="Button" parent="UserDaresChoicePanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 7
+theme_override_font_sizes/font_size = 5
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qs7lm")
 theme_override_styles/hover = SubResource("StyleBoxFlat_nm3d2")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_v64op")
@@ -820,13 +823,14 @@ text = "Играй на твоите
  предизвикателства"
 
 [node name="Create" type="Button" parent="UserDaresChoicePanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 7
+theme_override_font_sizes/font_size = 5
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qs7lm")
 theme_override_styles/hover = SubResource("StyleBoxFlat_srusp")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_h3qna")
