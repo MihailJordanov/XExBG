@@ -24,16 +24,13 @@ extends Control
 @onready var add_button_add_panel: Button = $ShowAddingDarePanel/AddButton
 @onready var error_show_label: Label = $ShowAddingDarePanel/ErrorShowLabel
 
-var dares: Array[String] = [
-	"Направи 10 лицеви опори Сегаааааа садсадададсд асд асд асдс асд ададасда ",
-	"Изпей куплет от любима песен Сегаааааа садсадададсд асд асд асдс асд ададасда",
-	"Направи смешно селфи Сегаааааа садсадададсд асд асд асдс асд ададасда",
-]
+
 
 var _pending_delete_text: String = ""
 var _pending_delete_node: Button = null
 
 func _ready() -> void:
+	animation_player.play("opening_scene")
 	set_anchors_preset(Control.PRESET_FULL_RECT)
 
 	# растене на списъка
@@ -71,6 +68,8 @@ func _ready() -> void:
 	back_button_add_panel.pressed.connect(_hide_add_panel)
 	add_button_add_panel.pressed.connect(_on_add_dare_pressed)
 
+	DareManager.load_dares()
+
 	_populate_list()
 
 
@@ -78,6 +77,8 @@ func _populate_list() -> void:
 	for c in list.get_children():
 		c.queue_free()
 
+	# ЧЕТЕМ директно от DareManager
+	var dares: Array[String] = DareManager.get_dares("user_dares")  # duplicate по дефолт
 	var idx := 1
 	for text in dares:
 		var btn := _make_button(text, idx)
@@ -114,7 +115,9 @@ func _on_confirm_delete() -> void:
 		_hide_panel()
 		return
 
-	dares.erase(_pending_delete_text)
+	# Махни от DareManager и запази
+	DareManager.remove_dare("user_dares", _pending_delete_text)
+	DareManager.save_dares()
 	# rebuild -> коректна номерация
 	_populate_list()
 
@@ -166,7 +169,7 @@ func _on_add_dare_pressed() -> void:
 	var raw := text_edit.text
 	var val := raw.strip_edges()
 
-	# валидации
+	# --- ВАЛИДАЦИИ ---
 	if val.is_empty():
 		_set_add_error("Моля, въведи текст.")
 		return
@@ -174,22 +177,27 @@ func _on_add_dare_pressed() -> void:
 		_set_add_error("Текстът е твърде дълъг (макс. 1024 символа).")
 		return
 
-	# по желание: защита от дубли
-	# if dares.has(val):
-	# 	_set_add_error("Това предизвикателство вече съществува.")
-	# 	return
+	var existing := DareManager.get_dares("user_dares")
 
-	# добавяне в модела и обновяване на списъка
-	dares.append(val)
+	# --- НОВА ПРОВЕРКА: лимит на броя предизвикателства ---
+	if existing.size() >= 1024:
+		_set_add_error("Достигнат е лимитът от 1024\nпредизвикателства.")
+		return
+
+	# --- Проверка за дубли ---
+	if existing.has(val):
+		_set_add_error("Това предизвикателство вече съществува.")
+		return
+
+	# --- Добавяне ---
+	DareManager.add_dare("user_dares", val)
+	DareManager.save_dares()
+
+	# Обнови списъка
 	_populate_list()
 
-	# (по желание) скрол до дъното, за да се види новият елемент
-	#var vbar := $ScrollContainer.get_v_scroll_bar()
-	#if vbar:
-	#	await get_tree().process_frame
-	#	vbar.value = vbar.max_value
-
 	_hide_add_panel()
+
 
 
 # ---------- Helpers (добавяне) ----------
@@ -208,3 +216,25 @@ func _on_delete_button_button_down() -> void:
 
 func _on_no_button_button_down() -> void:
 	choice_panel.visible = false
+
+
+func _on_back_to_main_button_button_down() -> void:
+	play_anim_then_change_scene(animation_player, &"back_to_main", "res://Scenes/main_scene.tscn")
+	
+	
+func play_anim_then_change_scene(anim_player: AnimationPlayer, anim: StringName, scene: Variant) -> void:
+	if anim_player and anim_player.has_animation(anim):
+		anim_player.play(anim)
+		var finished: StringName = await anim_player.animation_finished
+		# по желание: гаранция, че чакахме точната анимация
+		if finished != anim:
+			push_warning("Different animation finished: %s" % finished)
+	else:
+		push_warning("Animation '%s' not found; switching immediately." % anim)
+
+	if typeof(scene) == TYPE_STRING:
+		get_tree().change_scene_to_file(String(scene))            # "res://path/to_scene.tscn"
+	elif typeof(scene) == TYPE_OBJECT and scene is PackedScene:
+		get_tree().change_scene_to_packed(scene as PackedScene)   # ако подадеш PackedScene
+	else:
+		push_error("Invalid scene argument (use path String or PackedScene).")

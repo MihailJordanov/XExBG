@@ -23,6 +23,7 @@ extends Node2D
 @export var is_extreme_dare : bool = false : set = _set_is_extreme
 @export var is_sexy_dare    : bool = false : set = _set_is_sexy
 @export var is_dirty_dare   : bool = false : set = _set_is_dirty
+@export var is_user_dare    : bool = false : set = _set_is_user
 
 # Ако искаш да се разбъркват въпросите при зареждане
 @export var shuffle_dares : bool = true
@@ -68,6 +69,10 @@ func _set_is_sexy(v: bool) -> void:
 func _set_is_dirty(v: bool) -> void:
 	is_dirty_dare = v
 	_reload_level_dares()
+	
+func _set_is_user(v: bool) -> void:
+	is_user_dare = v
+	_reload_level_dares()
 
 func _selected_categories() -> Array[String]:
 	var cats: Array[String] = []
@@ -75,6 +80,7 @@ func _selected_categories() -> Array[String]:
 	if is_extreme_dare: cats.append("extreme_dares")
 	if is_sexy_dare:    cats.append("sexy_dares")
 	if is_dirty_dare:   cats.append("dirty_dares")
+	if is_user_dare:    cats.append("user_dares")
 	return cats
 
 func _reload_level_dares() -> void:
@@ -332,7 +338,8 @@ func _on_back_button_button_down() -> void:
 	exit_panel.visible = true
 
 func _on_exit_button_button_down() -> void:
-	play_anim_then_change_scene(animation_player, &"back_to_main", "res://Levels/main_scene.tscn")
+	play_anim_then_change_scene(animation_player, &"back_to_main", "res://Scenes/main_scene.tscn")
+	exit_panel.visible = false
 	
 	
 	

@@ -1,6 +1,6 @@
 [gd_scene load_steps=61 format=3 uid="uid://kf1fvj5u34w5"]
 
-[ext_resource type="Script" uid="uid://dejyobwq80sg7" path="res://Scenes/main_scene_controller.gd" id="1_72q2g"]
+[ext_resource type="Script" uid="uid://dejyobwq80sg7" path="res://Scripts/main_scene_controller.gd" id="1_72q2g"]
 [ext_resource type="FontFile" uid="uid://bcjx4bib6qgco" path="res://Fonts/ZeroCool.otf" id="1_wr0fo"]
 [ext_resource type="Texture2D" uid="uid://com1r2le8cmgv" path="res://Images/Buttons/classic_bg.png" id="2_72q2g"]
 [ext_resource type="Texture2D" uid="uid://bb7sgsexmpdyv" path="res://Images/Buttons/extreme_bg.png" id="3_mne4e"]
@@ -656,7 +656,6 @@ libraries = {
 [node name="ClosingScenesPanels" type="Node" parent="."]
 
 [node name="Panel_Normal" type="Panel" parent="ClosingScenesPanels"]
-visible = false
 offset_right = 90.0
 offset_bottom = 160.0
 mouse_filter = 2
@@ -669,7 +668,6 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_wgp5u")
 
 [node name="WarningPanel" type="Panel" parent="."]
-visible = false
 offset_left = 2.0
 offset_top = 5.0
 offset_right = 88.0
@@ -773,7 +771,7 @@ visible = false
 offset_left = 1.0
 offset_top = 22.0
 offset_right = 89.0
-offset_bottom = 131.0
+offset_bottom = 138.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_kumpi")
 
 [node name="DisableButtonsPanel" type="Panel" parent="UserDaresChoicePanel"]
@@ -849,10 +847,27 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_nm3d2")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_yfwm6")
 theme_override_styles/normal = SubResource("StyleBoxTexture_1dybb")
 
+[node name="ErrorLabel" type="Label" parent="UserDaresChoicePanel"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 97.0
+offset_right = 85.0
+offset_bottom = 116.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_constants/line_spacing = -1
+theme_override_font_sizes/font_size = 4
+text = "Трявба да имаш минимум 
+едно предизвикателство за
+ ( 1 или 2 играча) за да играеш"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="button_down" from="ScrollContainer/GridContainer/Classic" to="." method="_on_classic_button_down"]
 [connection signal="button_down" from="ScrollContainer/GridContainer/Extreme" to="." method="_on_extreme_button_down"]
 [connection signal="button_down" from="ScrollContainer/GridContainer/Sexy" to="." method="_on_sexy_button_down"]
 [connection signal="button_down" from="ScrollContainer/GridContainer/Dirty" to="." method="_on_dirty_button_down"]
 [connection signal="button_down" from="ScrollContainer/GridContainer/UserDares" to="." method="_on_user_dares_button_down"]
 [connection signal="button_down" from="WarningPanel/PlayButton" to="." method="_on_play_button_button_down"]
+[connection signal="button_down" from="UserDaresChoicePanel/VBoxContainer/Play" to="." method="_on_play_button_down"]
+[connection signal="button_down" from="UserDaresChoicePanel/VBoxContainer/Create" to="." method="_on_create_button_down"]
 [connection signal="button_down" from="UserDaresChoicePanel/CloseButton" to="." method="_on_close_button_user_dares_choice_panel_down"]
