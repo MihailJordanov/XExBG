@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cnutw28j1b2n0"]
+[gd_scene load_steps=47 format=3 uid="uid://cnutw28j1b2n0"]
 
 [ext_resource type="Script" uid="uid://dquk42arcucyn" path="res://Scenes/user_create_dares.gd" id="1_mk1sw"]
 [ext_resource type="Texture2D" uid="uid://c1mjxs2guq7vq" path="res://Images/Icons/not_colored_icon.png" id="1_wf2pw"]
@@ -26,63 +26,31 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_18kqg"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_knqko"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62wt7"]
-bg_color = Color(0.753985, 0.753983, 0.753985, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d502v"]
+bg_color = Color(0.364706, 0.92549, 0.447059, 0.784314)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
-shadow_size = 1
-shadow_offset = Vector2(-1, 2)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u8fmk"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7uvfy"]
-bg_color = Color(0.960784, 0.0823529, 0.207843, 0.784314)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-shadow_size = 1
 shadow_offset = Vector2(-0.5, 0.5)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b7xwj"]
-bg_color = Color(0.960784, 0.0823529, 0.207843, 0.705882)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_neg8l"]
+bg_color = Color(0.364706, 0.92549, 0.447059, 0.705882)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
-shadow_size = 1
 shadow_offset = Vector2(-0.5, 0.5)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k2umu"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s01qu"]
-bg_color = Color(0.6, 0.6, 0.6, 0.784314)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hy782"]
-bg_color = Color(0.6, 0.6, 0.6, 0.705882)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_knqko"]
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5mdgf"]
+bg_color = Color(0.364706, 0.92549, 0.447059, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_offset = Vector2(-0.5, 0.5)
 
 [sub_resource type="Animation" id="Animation_mk1sw"]
 resource_name = "show_dare_panel"
@@ -115,6 +83,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(4, 10)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShowAddingDarePanel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 10)]
+}
 
 [sub_resource type="Animation" id="Animation_u8fmk"]
 resource_name = "hide_dare_panel"
@@ -133,14 +113,220 @@ tracks/0/keys = {
 "values": [Vector2(4, 10), Vector2(-90, 10)]
 }
 
+[sub_resource type="Animation" id="Animation_18kqg"]
+resource_name = "show_adding_dare_panel"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShowAddingDarePanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-90, 10), Vector2(4, 10)]
+}
+
+[sub_resource type="Animation" id="Animation_knqko"]
+resource_name = "hide_adding_dare_panel"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShowAddingDarePanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(4, 10), Vector2(-90, 10)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u8fmk"]
 _data = {
 &"RESET": SubResource("Animation_k2umu"),
+&"hide_adding_dare_panel": SubResource("Animation_knqko"),
 &"hide_dare_panel": SubResource("Animation_u8fmk"),
+&"show_adding_dare_panel": SubResource("Animation_18kqg"),
 &"show_dare_panel": SubResource("Animation_mk1sw")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5mdgf"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_18kqg"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2qtta"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62wt7"]
+bg_color = Color(0.753985, 0.753983, 0.753985, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_size = 1
+shadow_offset = Vector2(-1, 2)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u8fmk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7uvfy"]
+bg_color = Color(0.960784, 0.0823529, 0.207843, 0.666667)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_size = 1
+shadow_offset = Vector2(-0.5, 0.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b7xwj"]
+bg_color = Color(0.960784, 0.0823529, 0.207843, 0.627451)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_size = 1
+shadow_offset = Vector2(-0.5, 0.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oqaml"]
+bg_color = Color(0.960784, 0.0823529, 0.207843, 0.792157)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_size = 1
+shadow_offset = Vector2(-0.5, 0.5)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k2umu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s01qu"]
+bg_color = Color(0.6, 0.6, 0.6, 0.784314)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hy782"]
+bg_color = Color(0.6, 0.6, 0.6, 0.705882)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_knqko"]
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xu277"]
+bg_color = Color(0.101961, 0.101961, 0.101961, 0.862745)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_size = 1
+shadow_offset = Vector2(-0.7, 0.9)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3b1u"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_18kqg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmt7m"]
+bg_color = Color(0.364706, 0.92549, 0.447059, 0.784314)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ej8r"]
+bg_color = Color(0.364706, 0.92549, 0.447059, 0.705882)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eueai"]
+bg_color = Color(0.364706, 0.92549, 0.447059, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w3b1u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m8exg"]
+bg_color = Color(0.960784, 0.0823529, 0.207843, 0.666667)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hen25"]
+bg_color = Color(0.960784, 0.0823529, 0.207843, 0.627451)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hfamb"]
+bg_color = Color(0.960784, 0.0823529, 0.207843, 0.792157)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xfbqo"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d68s1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5febu"]
+bg_color = Color(0.404511, 0.404511, 0.404511, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0mqj"]
+bg_color = Color(0.404511, 0.404511, 0.404511, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdsm1"]
+bg_color = Color(0.140447, 0.140447, 0.140447, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yryf3"]
+bg_color = Color(0.404511, 0.404511, 0.404511, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ogeje"]
+bg_color = Color(0.364706, 0.92549, 0.447059, 0.784314)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_offset = Vector2(-0.5, 0.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ert1"]
+bg_color = Color(0.364706, 0.92549, 0.447059, 0.705882)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_offset = Vector2(-0.5, 0.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vh0vw"]
 bg_color = Color(0.364706, 0.92549, 0.447059, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
@@ -178,6 +364,19 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_u8fmk")
 theme_override_styles/normal = SubResource("StyleBoxFlat_mk1sw")
 text = "Пии много вода през деня, защото трябва"
 
+[node name="AddButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 149.0
+offset_right = 68.0
+offset_bottom = 158.0
+theme_override_font_sizes/font_size = 6
+theme_override_styles/focus = SubResource("StyleBoxEmpty_knqko")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d502v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_neg8l")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5mdgf")
+text = "Добави"
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -30
 
@@ -199,6 +398,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 1
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_u8fmk")
+}
+
 [node name="ShowSelectedDarePanel" type="Panel" parent="."]
 visible = false
 layout_mode = 0
@@ -207,6 +411,14 @@ offset_top = 10.0
 offset_right = 86.0
 offset_bottom = 150.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_18kqg")
+
+[node name="DisablePanel" type="Panel" parent="ShowSelectedDarePanel"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -10.0
+offset_right = 86.0
+offset_bottom = 150.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2qtta")
 
 [node name="TextPanel" type="Panel" parent="ShowSelectedDarePanel"]
 layout_mode = 0
@@ -229,7 +441,7 @@ theme_override_font_sizes/italics_font_size = 7
 theme_override_font_sizes/mono_font_size = 7
 theme_override_font_sizes/normal_font_size = 7
 theme_override_font_sizes/bold_font_size = 7
-text = "fasfdsafads"
+text = "_1 трябва да си напудри носа!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -243,7 +455,7 @@ theme_override_font_sizes/font_size = 4
 theme_override_styles/focus = SubResource("StyleBoxEmpty_u8fmk")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7uvfy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_b7xwj")
-theme_override_styles/normal = SubResource("StyleBoxFlat_7uvfy")
+theme_override_styles/normal = SubResource("StyleBoxFlat_oqaml")
 text = "Изтрий"
 
 [node name="BackButton" type="Button" parent="ShowSelectedDarePanel"]
@@ -269,17 +481,185 @@ theme_override_font_sizes/font_size = 11
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_u8fmk")
-}
+[node name="ChoicePanel" type="Panel" parent="ShowSelectedDarePanel"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.024
+anchor_top = 0.05
+anchor_right = 0.976
+anchor_bottom = 0.343
+offset_left = 0.0319999
+offset_right = -0.0320053
+offset_bottom = -0.0200043
+theme_override_styles/panel = SubResource("StyleBoxFlat_xu277")
 
-[node name="AddButton" type="Button" parent="."]
+[node name="DisablePanel" type="Panel" parent="ShowSelectedDarePanel/ChoicePanel"]
 layout_mode = 0
-offset_left = 20.0
-offset_top = 149.0
-offset_right = 68.0
-offset_bottom = 158.0
+offset_left = -6.0
+offset_top = -17.0
+offset_right = 84.0
+offset_bottom = 143.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_w3b1u")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ShowSelectedDarePanel/ChoicePanel"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 2.0
+offset_right = 73.0
+offset_bottom = 14.0
+theme_override_font_sizes/bold_italics_font_size = 6
+theme_override_font_sizes/italics_font_size = 6
+theme_override_font_sizes/mono_font_size = 6
+theme_override_font_sizes/normal_font_size = 6
+theme_override_font_sizes/bold_font_size = 6
+bbcode_enabled = true
+text = "[b]Ще го триеш ли е?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="YesButton" type="Button" parent="ShowSelectedDarePanel/ChoicePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.115
+anchor_top = 0.512
+anchor_right = 0.397
+anchor_bottom = 0.829
+offset_left = 0.0299997
+offset_top = 0.00799942
+offset_right = 0.0339985
+offset_bottom = 0.0109978
+theme_override_font_sizes/font_size = 7
+theme_override_styles/focus = SubResource("StyleBoxEmpty_18kqg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pmt7m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2ej8r")
+theme_override_styles/normal = SubResource("StyleBoxFlat_eueai")
+text = "Да"
+
+[node name="NoButton" type="Button" parent="ShowSelectedDarePanel/ChoicePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.603
+anchor_top = 0.512
+anchor_right = 0.885
+anchor_bottom = 0.829
+offset_left = -0.0340042
+offset_top = 0.00799942
+offset_right = -0.0300064
+offset_bottom = 0.0109978
+theme_override_font_sizes/font_size = 7
+theme_override_styles/focus = SubResource("StyleBoxEmpty_w3b1u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_m8exg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hen25")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hfamb")
+text = "Не"
+
+[node name="ShowAddingDarePanel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = 10.0
+offset_right = 86.0
+offset_bottom = 150.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xfbqo")
+
+[node name="DisablePanel" type="Panel" parent="ShowAddingDarePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.049
+anchor_top = -0.071
+anchor_right = 1.049
+anchor_bottom = 1.071
+offset_left = 0.0180001
+offset_top = -0.0599995
+offset_right = -0.0180054
+offset_bottom = 0.0599823
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d68s1")
+
+[node name="BackButton" type="Button" parent="ShowAddingDarePanel"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -3.0
+offset_right = 24.0
+offset_bottom = 4.0
+theme_override_font_sizes/font_size = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_k2umu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s01qu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hy782")
+theme_override_styles/normal = SubResource("StyleBoxFlat_knqko")
+text = "< Върни се"
+
+[node name="EnterTextPanel" type="Panel" parent="ShowAddingDarePanel"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 10.0
+offset_right = 79.0
+offset_bottom = 129.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5febu")
+
+[node name="TextEdit" type="TextEdit" parent="ShowAddingDarePanel/EnterTextPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_spacing = -1
+theme_override_font_sizes/font_size = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_g0mqj")
+theme_override_styles/focus = SubResource("StyleBoxFlat_hdsm1")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_yryf3")
+placeholder_text = "Въведи тук твоето предизвикателство...
+
+За да може предизвикателството да включва произволни имена когато играете трябва да следва следния синтаксис:
+_1 -> замества името на играч!
+Аналогично за повече играчи:
+_2 -> име2
+_3 -> име3
+
+Пишеш:
+\"_1 трябва да скочи\"
+\"_1 и _2 трябва да пеят\"
+
+В играта ще виждаш:
+\"Пешо трябва да скочи \"
+\"Пешо и Ния трябва да пеят\"
+
+
+"
+wrap_mode = 1
+scroll_smooth = true
+
+[node name="AddButton" type="Button" parent="ShowAddingDarePanel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 132.0
+offset_right = 64.0
+offset_bottom = 148.0
 theme_override_font_sizes/font_size = 6
-theme_override_styles/normal = SubResource("StyleBoxFlat_5mdgf")
-text = "Добави"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_knqko")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ogeje")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1ert1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vh0vw")
+text = "Добави го"
+
+[node name="ErrorShowLabel" type="Label" parent="ShowAddingDarePanel"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 2.0
+offset_right = 71.0
+offset_bottom = 10.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 3
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_down" from="AddButton" to="." method="_on_add_button_button_down"]
+[connection signal="button_down" from="ShowSelectedDarePanel/DeleteButton" to="." method="_on_delete_button_button_down"]
+[connection signal="button_down" from="ShowSelectedDarePanel/ChoicePanel/NoButton" to="." method="_on_no_button_button_down"]
