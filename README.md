@@ -35,19 +35,25 @@ To run the project locally:
    git clone https://github.com/MihailJordanov/XExBG.git
    cd XExBG
 
-##🖼️ Preview
+   
 
-###🚪 Main Menu
+## 🖼️ Preview
+
+### 🚪 Main Menu
 ![Main Menu](https://github.com/MihailJordanov/XExBG/blob/main/Images/Phone%20screenshots/Screenshot%202025-10-15%20163041.png)
 
-###🧑‍🤝‍🧑 Dare 1
-![Main Menu](https://github.com/MihailJordanov/XExBG/blob/main/Images/Phone%20screenshots/Screenshot%202025-10-15%20163041.png)
 
-###🧑‍🤝‍🧑 Dare 2
-![Main Menu](https://github.com/MihailJordanov/XExBG/blob/main/Images/Phone%20screenshots/Screenshot%202025-10-04%20231647.png)
+### 🧑‍🤝‍🧑 Dare 1
+![Dare 1](https://github.com/MihailJordanov/XExBG/blob/main/Images/Phone%20screenshots/Screenshot%202025-10-15%20163041.png)
 
-###🧑‍🤝‍🧑 Dare 3
-![Main Menu](https://github.com/MihailJordanov/XExBG/blob/main/Images/Phone%20screenshots/Screenshot%202025-10-04%20232358.png)
 
-###🧑‍🤝‍🧑 Dare 4
-![Main Menu](https://github.com/MihailJordanov/XExBG/blob/main/Images/Phone%20screenshots/Screenshot%202025-10-04%20231608.png)
+### 🧑‍🤝‍🧑 Dare 2
+![Dare 2](https://github.com/MihailJordanov/XExBG/blob/main/Images/Phone%20screenshots/Screenshot%202025-10-04%20231647.png)
+
+
+### 🧑‍🤝‍🧑 Dare 3
+![Dare 3](https://github.com/MihailJordanov/XExBG/blob/main/Images/Phone%20screenshots/Screenshot%202025-10-04%20232358.png)
+
+
+### 🧑‍🤝‍🧑 Dare 4
+![Dare 4](https://github.com/MihailJordanov/XExBG/blob/main/Images/Phone%20screenshots/Screenshot%202025-10-04%20231608.png)
