@@ -49,6 +49,19 @@ cd XExBG
 
 ## 🖼️ Preview
 
-<p align="center"> <img src="https://github.com/MihailJordanov/XExBG/blob/main/Images/Phone%20screenshots/Screenshot%202025-10-15%20163041.png" width="250"> <img src="https://github.com/MihailJordanov/XExBG/blob/main/Images/Phone%20screenshots/Screenshot%202025-10-04%20232850.png" width="250"> <img src="https://github.com/MihailJordanov/XExBG/blob/main/Images/Phone%20screenshots/Screenshot%202025-10-04%20231608.png" width="250"> </p> <p align="center"> <img src="https://github.com/MihailJordanov/XExBG/blob/main/Images/Phone%20screenshots/Screenshot%202025-10-04%20231647.png" width="250"> <img src="https://github.com/MihailJordanov/XExBG/blob/main/Images/Phone%20screenshots/Screenshot%202025-10-04%20232358.png" width="250"> </p>
-
+<p align="center">
+  <img src="https://github.com/MihailJordanov/XExBG/blob/main/Images/Phone%20screenshots/Screenshot%202025-10-15%20163041.png" width="600" alt="Level Map 1" style="border-radius:10px;box-shadow:0 0 10px rgba(0,0,0,0.3);"><br>
+</p>
+<p align="center">
+  <img src="https://github.com/MihailJordanov/XExBG/blob/main/Images/Phone%20screenshots/Screenshot%202025-10-04%20232850.png" width="600" alt="Level Map 1" style="border-radius:10px;box-shadow:0 0 10px rgba(0,0,0,0.3);"><br>
+</p>
+<p align="center">
+  <img src="https://github.com/MihailJordanov/XExBG/blob/main/Images/Phone%20screenshots/Screenshot%202025-10-04%20231608.png" width="600" alt="Level Map 1" style="border-radius:10px;box-shadow:0 0 10px rgba(0,0,0,0.3);"><br>
+</p>
+<p align="center">
+  <img src="https://github.com/MihailJordanov/XExBG/blob/main/Images/Phone%20screenshots/Screenshot%202025-10-04%20231647.png" width="600" alt="Level Map 1" style="border-radius:10px;box-shadow:0 0 10px rgba(0,0,0,0.3);"><br>
+</p>
+<p align="center">
+  <img src="https://github.com/MihailJordanov/XExBG/blob/main/Images/Phone%20screenshots/Screenshot%202025-10-04%20232358.png" width="600" alt="Level Map 1" style="border-radius:10px;box-shadow:0 0 10px rgba(0,0,0,0.3);"><br>
+</p>
 
