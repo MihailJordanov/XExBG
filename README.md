@@ -1,28 +1,39 @@
-# 🎮 XExBG — Party Challenge Game
+<p align="center">
+  <img src="https://github.com/MihailJordanov/XExBG/blob/main/Images/Icons/xex_bg_icon_432x432.png" alt="XExBG Icon" width="160" height="160">
+</p>
 
-📱 **Available on Google Play (Test Period)**  
-A fun, social party game packed with creative and interactive challenges — designed to bring friends together and keep the energy high.  
-Players can even **create their own custom challenges**, adding a personal and unpredictable twist to every session!  
+<h1 align="center">🎉 XExBG — The Ultimate Party Challenge Game 🎮</h1>
+
+<p align="center">
+  <b>Now available on Google Play (Test Period)</b>  
+</p>
+
+<p align="center">
+  XExBG is a hilarious and social <b>party challenge game</b> designed to bring friends together through fun, chaos, and creativity.  
+  Choose a category, complete or skip challenges, and now — <b>create your own custom dares!</b>  
+  Every game night becomes unpredictable, personal, and unforgettable. 🍻
+</p>
 
 ---
 
-## 🌟 Features
+## ✨ Key Features
 
-- 🎲 Multiple game modes for different vibes  
-- 🧑‍🤝‍🧑 Local multiplayer support  
-- ✏️ Players can **create and edit their own challenges**  
-- 🎨 Adaptive UI optimized for mobile devices  
-- ☁️ Firebase integration for saving and syncing data  
-- 🔊 Smooth, animated interface with engaging visuals  
+- 🎲 Multiple categories for every mood — from chill to wild  
+- 🧑‍🤝‍🧑 Local multiplayer for shared fun  
+- ✏️ **Create and edit your own challenges**  
+- 🔄 Dynamic challenge system for endless replayability  
+- 🎨 Smooth, animated UI optimized for all Android devices  
+- ☁️ Firebase integration for live data and syncing  
+- 🔊 Lively design, sounds, and animations for a party atmosphere  
 
 ---
 
 ## 💻 Tech Stack
 
-- 🎮 **Godot Engine (GDScript)**  
-- ☕ **Java (Android integration)**  
-- 🔥 **Firebase Realtime Database**  
-- 🧠 **Custom game logic, animations, and UI components**
+- 🧩 **Godot Engine (GDScript)** — core gameplay & UI  
+- ☕ **Java (Android integration)** — platform-specific features  
+- 🔥 **Firebase Realtime Database** — cloud data storage  
+- ⚙️ **Custom logic & animations** — tailored for seamless experience  
 
 ---
 
@@ -30,36 +41,14 @@ Players can even **create their own custom challenges**, adding a personal and u
 
 To run the project locally:
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/MihailJordanov/XExBG.git
-   cd XExBG
+```bash
+git clone https://github.com/MihailJordanov/XExBG.git
+cd XExBG
 
    
 
 ## 🖼️ Preview
 
-### 🚪 Main Menu
-![Main Menu](https://github.com/MihailJordanov/XExBG/blob/main/Images/Phone%20screenshots/Screenshot%202025-10-15%20163041.png)
-
-
-
-### 🧑‍🤝‍🧑 Dare 1
-![Dare 1](https://github.com/MihailJordanov/XExBG/blob/main/Images/Phone%20screenshots/Screenshot%202025-10-04%20232850.png)
-
-
-
-### 🧑‍🤝‍🧑 Dare 2
-![Dare 2](https://github.com/MihailJordanov/XExBG/blob/main/Images/Phone%20screenshots/Screenshot%202025-10-04%20231608.png)
-
-
-
-### 🧑‍🤝‍🧑 Dare 3
-![Dare 3](https://github.com/MihailJordanov/XExBG/blob/main/Images/Phone%20screenshots/Screenshot%202025-10-04%20231647.png)
-
-
-
-### 🧑‍🤝‍🧑 Dare 4
-![Dare 4](https://github.com/MihailJordanov/XExBG/blob/main/Images/Phone%20screenshots/Screenshot%202025-10-04%20232358.png)
+<p align="center"> <img src="https://github.com/MihailJordanov/XExBG/blob/main/Images/Phone%20screenshots/Screenshot%202025-10-15%20163041.png" width="250"> <img src="https://github.com/MihailJordanov/XExBG/blob/main/Images/Phone%20screenshots/Screenshot%202025-10-04%20232850.png" width="250"> <img src="https://github.com/MihailJordanov/XExBG/blob/main/Images/Phone%20screenshots/Screenshot%202025-10-04%20231608.png" width="250"> </p> <p align="center"> <img src="https://github.com/MihailJordanov/XExBG/blob/main/Images/Phone%20screenshots/Screenshot%202025-10-04%20231647.png" width="250"> <img src="https://github.com/MihailJordanov/XExBG/blob/main/Images/Phone%20screenshots/Screenshot%202025-10-04%20232358.png" width="250"> </p>
 
 
