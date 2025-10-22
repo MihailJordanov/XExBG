@@ -44,8 +44,8 @@ To run the project locally:
 ```bash
 git clone https://github.com/MihailJordanov/XExBG.git
 cd XExBG
-
-   
+```
+---
 
 ## 🖼️ Preview
 
