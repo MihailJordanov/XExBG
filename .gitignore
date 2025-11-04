@@ -7,6 +7,5 @@
 *.apk
 Versions/
 
-# Keystore (много важно да не се качва)
 android/keystore/
 *.keystore

@@ -310,7 +310,6 @@ bg_color = Color(0, 0, 0, 1)
 
 [node name="ClassicLevel01" type="Node2D"]
 script = ExtResource("1_as5ey")
-shuffle_dares = false
 
 [node name="QuestionPanel" type="Panel" parent="."]
 offset_left = 4.0

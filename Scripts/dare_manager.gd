@@ -1,13 +1,10 @@
-# DareManager.gd
 extends Node
 
-#"user://save.sav"
 const DEFAULT_SAVE_PATH := "res://data/save.json"  # вътре в проекта (влиза в .aab)
 const SAVE_PATH := "user://save.json"              # истинският сейв на устройството
 
-var is_warning_ready = false
+var is_warning_ready := false
 
-# Работим само с категории (без под-ключове)
 const CATEGORY_KEYS := [
 	"classic_dares",
 	"extreme_dares",
@@ -16,12 +13,11 @@ const CATEGORY_KEYS := [
 	"user_dares"
 ]
 
-	
 var current_save: Dictionary = {}
 
 func _init() -> void:
 	current_save = _default_save()
-	
+
 func _ready() -> void:
 	_ensure_user_save()
 	var ok := load_dares()
@@ -48,7 +44,6 @@ func _ensure_user_save() -> void:
 		else:
 			push_warning("[DareManager] DEFAULT not found in res:// (check export filters).")
 
-
 # ---------- Defaults ----------
 func _default_save() -> Dictionary:
 	var d: Dictionary = {}
@@ -67,7 +62,6 @@ func add_dare(category: String, text: String) -> void:
 	if text.is_empty():
 		return
 	var arr := current_save[category] as Array
-	# избягваме дубли
 	if not arr.has(text):
 		arr.append(text)
 
@@ -88,7 +82,6 @@ func clear_category(category: String) -> void:
 	current_save[category] = [] as Array[String]
 
 func get_all_categories() -> Dictionary:
-	# Връща копие за безопасно четене
 	var out := {}
 	for cat in CATEGORY_KEYS:
 		out[cat] = (current_save[cat] as Array).duplicate()
@@ -104,29 +97,63 @@ func save_dares() -> bool:
 	return true
 
 func load_dares() -> bool:
-	if not FileAccess.file_exists(SAVE_PATH):
+	var def := _try_load_json_dict(DEFAULT_SAVE_PATH)
+	var def_ok: bool = def["ok"]
+	var def_dict: Dictionary = def["data"]
+
+	var usr := _try_load_json_dict(SAVE_PATH)
+	var usr_ok: bool = usr["ok"]
+	var usr_dict: Dictionary = usr["data"]
+
+	if not def_ok and not usr_ok:
+		push_warning("No valid default or user save; using defaults.")
 		current_save = _default_save()
 		return false
 
-	var f := FileAccess.open(SAVE_PATH, FileAccess.READ)
+	if def_ok and not usr_ok:
+		current_save = def_dict
+		save_dares()
+		return true
+
+	if usr_ok and not def_ok:
+		current_save = usr_dict
+		return true
+
+	var merged := def_dict.duplicate(true)
+
+	if has_category("user_dares"):
+		var usr_arr: Array[String] = []
+		if usr_dict.has("user_dares") and typeof(usr_dict["user_dares"]) == TYPE_ARRAY:
+			usr_arr = _as_string_array(usr_dict["user_dares"])
+		merged["user_dares"] = usr_arr
+
+	current_save = _normalize_loaded(merged)
+
+	save_dares()
+	return true
+
+# ---------- Helpers ----------
+func _try_load_json_dict(path: String) -> Dictionary:
+	var res := {"ok": false, "data": _default_save()}
+
+	if not FileAccess.file_exists(path):
+		return res
+
+	var f := FileAccess.open(path, FileAccess.READ)
 	if f == null:
-		push_error("Load failed: " + str(FileAccess.get_open_error()))
-		current_save = _default_save()
-		return false
+		push_warning("Cannot open: %s (err %s)" % [path, str(FileAccess.get_open_error())])
+		return res
 
 	var text := f.get_as_text()
 	var data = JSON.parse_string(text)
 	if typeof(data) != TYPE_DICTIONARY:
-		push_warning("Save corrupted; using defaults.")
-		current_save = _default_save()
-		return false
+		push_warning("Invalid JSON in: %s" % path)
+		return res
 
-	current_save = _normalize_loaded(data)
-	return true
+	res["ok"] = true
+	res["data"] = _normalize_loaded(data)
+	return res
 
-
-# ---------- Helpers ----------
-# Приема както новия плосък формат, така и стария (с под-ключове), и връща плосък.
 func _normalize_loaded(loaded: Dictionary) -> Dictionary:
 	var result := _default_save()
 
@@ -137,10 +164,8 @@ func _normalize_loaded(loaded: Dictionary) -> Dictionary:
 		var v = loaded[cat]
 		match typeof(v):
 			TYPE_ARRAY:
-				# Нов формат: директно списък с низове
 				result[cat] = _as_string_array(v as Array)
 			TYPE_DICTIONARY:
-				# Стар формат: комбинираме известните под-ключове в една листа
 				var legacy := v as Dictionary
 				var combined: Array[String] = []
 				for sk in ["daresOne","daresTwo","daresThree","daresFour","daresAll"]:
@@ -151,7 +176,6 @@ func _normalize_loaded(loaded: Dictionary) -> Dictionary:
 								combined.append(s)
 				result[cat] = combined
 			_:
-				# Непознат тип – игнорираме, оставяме празно по дефолт
 				pass
 
 	return result
