@@ -1,4 +1,4 @@
-class_name LevelController
+class_name LevelTruthsController
 extends Node2D
 
 # Gnerall
@@ -24,7 +24,9 @@ extends Node2D
 @export var is_sexy_dare    : bool = false : set = _set_is_sexy
 @export var is_dirty_dare   : bool = false : set = _set_is_dirty
 @export var is_user_dare    : bool = false : set = _set_is_user
-
+@export var is_common_truths    : bool = false : set = _set_is_common
+@export var is_personal_truths    : bool = false : set = _set_is_personal
+@export var is_love_truths    : bool = false : set = _set_is_love
 # Ако искаш да се разбъркват въпросите при зареждане
 @export var shuffle_dares : bool = true
 
@@ -73,6 +75,18 @@ func _set_is_dirty(v: bool) -> void:
 func _set_is_user(v: bool) -> void:
 	is_user_dare = v
 	_reload_level_dares()
+	
+func _set_is_common(v: bool) -> void:
+	is_common_truths = v
+	_reload_level_dares()
+	
+func _set_is_personal(v: bool) -> void:
+	is_personal_truths = v
+	_reload_level_dares()
+	
+func _set_is_love(v: bool) -> void:
+	is_love_truths = v
+	_reload_level_dares()
 
 func _selected_categories() -> Array[String]:
 	var cats: Array[String] = []
@@ -81,6 +95,9 @@ func _selected_categories() -> Array[String]:
 	if is_sexy_dare:    cats.append("sexy_dares")
 	if is_dirty_dare:   cats.append("dirty_dares")
 	if is_user_dare:    cats.append("user_dares")
+	if is_common_truths:  cats.append("common_truths")
+	if is_personal_truths:cats.append("personal_truths")
+	if is_love_truths:    cats.append("love_trurhs")
 	return cats
 
 func _reload_level_dares() -> void:
@@ -338,10 +355,8 @@ func _on_back_button_button_down() -> void:
 	exit_panel.visible = true
 
 func _on_exit_button_button_down() -> void:
-	play_anim_then_change_scene(animation_player, &"back_to_main", "res://Scenes/main_scene.tscn")
+	play_anim_then_change_scene(animation_player, &"back_to_main", "res://Scenes/main_scene_truths.tscn")
 	exit_panel.visible = false
-	
-	
 	
 func play_anim_then_change_scene(anim_player: AnimationPlayer, anim: StringName, scene: Variant) -> void:
 	if anim_player and anim_player.has_animation(anim):

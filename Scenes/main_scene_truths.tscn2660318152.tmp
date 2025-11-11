@@ -1,19 +1,18 @@
-[gd_scene load_steps=75 format=3 uid="uid://kf1fvj5u34w5"]
+[gd_scene load_steps=72 format=3 uid="uid://be1ghp2lkh0pj"]
 
-[ext_resource type="Script" uid="uid://dejyobwq80sg7" path="res://Scripts/main_scene_controller.gd" id="1_72q2g"]
-[ext_resource type="FontFile" uid="uid://bcjx4bib6qgco" path="res://Fonts/ZeroCool.otf" id="1_wr0fo"]
-[ext_resource type="Texture2D" uid="uid://com1r2le8cmgv" path="res://Images/Buttons/classic_bg.png" id="2_72q2g"]
-[ext_resource type="Texture2D" uid="uid://bb7sgsexmpdyv" path="res://Images/Buttons/extreme_bg.png" id="3_mne4e"]
-[ext_resource type="Texture2D" uid="uid://6spq644xe7ec" path="res://Images/Buttons/love_bg.png" id="4_wjs4o"]
-[ext_resource type="Texture2D" uid="uid://h3vcxw0h6ijr" path="res://Images/Buttons/dirty_bg.png" id="5_mc1i1"]
-[ext_resource type="Texture2D" uid="uid://cr2j5hdfvqsyj" path="res://Images/Panels/dirty_icon_2.png" id="7_mne4e"]
-[ext_resource type="Texture2D" uid="uid://f2pujv2srduk" path="res://Images/Buttons/your_dares_bg.png" id="7_wjs4o"]
-[ext_resource type="FontFile" uid="uid://bm6frqggfxsvc" path="res://Fonts/ZeroCool.ttf" id="8_mai8y"]
-[ext_resource type="Texture2D" uid="uid://c4ffcomu5nwuj" path="res://Images/Buttons/close_2.png" id="9_mc1i1"]
+[ext_resource type="Script" uid="uid://dejyobwq80sg7" path="res://Scripts/main_scene_controller.gd" id="1_0bk1a"]
+[ext_resource type="FontFile" uid="uid://bcjx4bib6qgco" path="res://Fonts/ZeroCool.otf" id="2_1yjp4"]
+[ext_resource type="Texture2D" uid="uid://com1r2le8cmgv" path="res://Images/Buttons/classic_bg.png" id="3_1er8t"]
+[ext_resource type="Texture2D" uid="uid://bb7sgsexmpdyv" path="res://Images/Buttons/extreme_bg.png" id="4_etn5w"]
+[ext_resource type="Texture2D" uid="uid://6spq644xe7ec" path="res://Images/Buttons/love_bg.png" id="5_yycwa"]
+[ext_resource type="Texture2D" uid="uid://h3vcxw0h6ijr" path="res://Images/Buttons/dirty_bg.png" id="6_ejhy6"]
+[ext_resource type="Texture2D" uid="uid://f2pujv2srduk" path="res://Images/Buttons/your_dares_bg.png" id="7_ocnfr"]
+[ext_resource type="Texture2D" uid="uid://cr2j5hdfvqsyj" path="res://Images/Panels/dirty_icon_2.png" id="8_6c3l8"]
+[ext_resource type="Texture2D" uid="uid://c4ffcomu5nwuj" path="res://Images/Buttons/close_2.png" id="9_g7ge1"]
 
 [sub_resource type="Gradient" id="Gradient_mne4e"]
-offsets = PackedFloat32Array(0.054878, 0.509146, 0.963415)
-colors = PackedColorArray(0.784314, 0.568627, 1, 1, 0.971471, 0.96917, 0.673714, 1, 0.172549, 1, 1, 1)
+offsets = PackedFloat32Array(0, 0.52160496, 1)
+colors = PackedColorArray(0.96494246, 0.9487552, 0.71467394, 1, 0.9842624, 0.97823364, 0.85484153, 1, 0.9647059, 0.9490196, 0.69803923, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_wjs4o"]
 gradient = SubResource("Gradient_mne4e")
@@ -22,24 +21,24 @@ fill_from = Vector2(0, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vdof2"]
 texture = SubResource("GradientTexture2D_wjs4o")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0e48y"]
-texture = ExtResource("2_72q2g")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0bk1a"]
+texture = ExtResource("3_1er8t")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mne4e"]
-texture = ExtResource("2_72q2g")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1yjp4"]
+texture = ExtResource("3_1er8t")
 modulate_color = Color(0.355314, 0.355314, 0.355314, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_72q2g"]
-texture = ExtResource("2_72q2g")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1er8t"]
+texture = ExtResource("3_1er8t")
 texture_margin_left = 1.0
 texture_margin_top = 1.0
 texture_margin_right = 1.0
 texture_margin_bottom = 1.0
 modulate_color = Color(0.741385, 0.741385, 0.741385, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mne4e"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_etn5w"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wjs4o"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yycwa"]
 bg_color = Color(0, 0, 0, 0)
 border_width_left = 1
 border_width_top = 1
@@ -47,23 +46,23 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0hol4"]
-texture = ExtResource("3_mne4e")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ejhy6"]
+texture = ExtResource("4_etn5w")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mc1i1"]
-texture = ExtResource("3_mne4e")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ocnfr"]
+texture = ExtResource("4_etn5w")
 modulate_color = Color(0.356863, 0.356863, 0.356863, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wjs4o"]
-texture = ExtResource("3_mne4e")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6c3l8"]
+texture = ExtResource("4_etn5w")
 texture_margin_left = 1.0
 texture_margin_top = 1.0
 texture_margin_right = 1.0
 texture_margin_bottom = 1.0
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wjs4o"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g7ge1"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8rkvs"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1hajl"]
 bg_color = Color(0, 0, 0, 0)
 border_width_left = 1
 border_width_top = 1
@@ -71,49 +70,24 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q6r6c"]
-texture = ExtResource("4_wjs4o")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ewle6"]
+texture = ExtResource("5_yycwa")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xnfqo"]
-texture = ExtResource("4_wjs4o")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l50uy"]
+texture = ExtResource("5_yycwa")
 modulate_color = Color(0.356863, 0.356863, 0.356863, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8rkvs"]
-texture = ExtResource("4_wjs4o")
-texture_margin_left = 1.0
-texture_margin_top = 1.0
-texture_margin_right = 1.0
-texture_margin_bottom = 1.0
-modulate_color = Color(0.741176, 0.741176, 0.741176, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mc1i1"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xnfqo"]
-bg_color = Color(0, 0, 0, 0)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kdubu"]
-texture = ExtResource("5_mc1i1")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kumpi"]
-texture = ExtResource("5_mc1i1")
-modulate_color = Color(0.356863, 0.356863, 0.356863, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qs7lm"]
-texture = ExtResource("5_mc1i1")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tsvaw"]
+texture = ExtResource("5_yycwa")
 texture_margin_left = 1.0
 texture_margin_top = 1.0
 texture_margin_right = 1.0
 texture_margin_bottom = 1.0
 modulate_color = Color(0.741176, 0.741176, 0.741176, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_72q2g"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7xhw6"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qs7lm"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cqudm"]
 bg_color = Color(0, 0, 0, 0)
 border_width_left = 1
 border_width_top = 1
@@ -121,24 +95,49 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_srusp"]
-texture = ExtResource("7_wjs4o")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qgprj"]
+texture = ExtResource("6_ejhy6")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h3qna"]
-texture = ExtResource("7_wjs4o")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x32is"]
+texture = ExtResource("6_ejhy6")
 modulate_color = Color(0.356863, 0.356863, 0.356863, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v64op"]
-texture = ExtResource("7_wjs4o")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bn12k"]
+texture = ExtResource("6_ejhy6")
 texture_margin_left = 1.0
 texture_margin_top = 1.0
 texture_margin_right = 1.0
 texture_margin_bottom = 1.0
 modulate_color = Color(0.741176, 0.741176, 0.741176, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xnfqo"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g380b"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1dybb"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w1mvk"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7uwio"]
+texture = ExtResource("7_ocnfr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gm2p3"]
+texture = ExtResource("7_ocnfr")
+modulate_color = Color(0.356863, 0.356863, 0.356863, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fom8i"]
+texture = ExtResource("7_ocnfr")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+modulate_color = Color(0.741176, 0.741176, 0.741176, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yva8l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sw81h"]
 bg_color = Color(0, 0, 0, 0)
 border_width_left = 1
 border_width_top = 1
@@ -362,6 +361,59 @@ tracks/7/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_mai8y"]
+resource_name = "hide_more_games_panel"
+length = 0.5
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MoreGamesNode2D/MoreGamesPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 35), Vector2(0, 160)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MoreGamesNode2D/MoreGamesPanel/ShowButton/RichTextLabel:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["Скрий", "Още игри"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MoreGamesNode2D/MoreGamesPanel/ShowButton/RichTextLabel2:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["⏷", "⏶"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MoreGamesNode2D/MoreGamesPanel/DisableTouchPanel:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="Animation" id="Animation_mc1i1"]
 resource_name = "opening_scene"
 length = 0.4
@@ -388,52 +440,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_72q2g"]
-resource_name = "start_classic"
-length = 0.4
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ClosingScenesPanels/Panel_Normal:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-90, 0), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ClosingScenesPanels/Panel_Normal:theme_override_styles/panel:bg_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_wjs4o"]
-resource_name = "start_dirty"
-length = 0.4
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ClosingScenesPanels/Panel_Dirty:theme_override_styles/panel:modulate_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_m1efj"]
@@ -489,57 +495,50 @@ tracks/3/keys = {
 "values": [false, true]
 }
 
-[sub_resource type="Animation" id="Animation_mai8y"]
-resource_name = "hide_more_games_panel"
-length = 0.5
-step = 0.25
+[sub_resource type="Animation" id="Animation_72q2g"]
+resource_name = "start_classic"
+length = 0.4
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MoreGamesNode2D/MoreGamesPanel:position")
+tracks/0/path = NodePath("ClosingScenesPanels/Panel_Normal:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 35), Vector2(0, 160)]
+"values": [Vector2(-90, 0), Vector2(0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("MoreGamesNode2D/MoreGamesPanel/ShowButton/RichTextLabel:text")
+tracks/1/path = NodePath("ClosingScenesPanels/Panel_Normal:theme_override_styles/panel:bg_color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": ["Скрий", "Още игри"]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MoreGamesNode2D/MoreGamesPanel/ShowButton/RichTextLabel2:text")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
+
+[sub_resource type="Animation" id="Animation_wjs4o"]
+resource_name = "start_dirty"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ClosingScenesPanels/Panel_Dirty:theme_override_styles/panel:modulate_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": ["⏷", "⏶"]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MoreGamesNode2D/MoreGamesPanel/DisableTouchPanel:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wjs4o"]
@@ -552,16 +551,11 @@ _data = {
 &"start_dirty": SubResource("Animation_wjs4o")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mne4e"]
-bg_color = Color(0, 0.367333, 0.38, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8rkvs"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mc1i1"]
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wgp5u"]
-texture = ExtResource("7_mne4e")
+texture = ExtResource("8_6c3l8")
 modulate_color = Color(1, 1, 1, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kumpi"]
@@ -649,20 +643,20 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1dybb"]
-texture = ExtResource("9_mc1i1")
+texture = ExtResource("9_g7ge1")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yfwm6"]
-texture = ExtResource("9_mc1i1")
+texture = ExtResource("9_g7ge1")
 modulate_color = Color(1, 1, 1, 0.627451)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nm3d2"]
-texture = ExtResource("9_mc1i1")
+texture = ExtResource("9_g7ge1")
 modulate_color = Color(1, 1, 1, 0.784314)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kumpi"]
 
 [node name="MainScene" type="Node2D"]
-script = ExtResource("1_72q2g")
+script = ExtResource("1_0bk1a")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -30
@@ -684,13 +678,13 @@ offset_right = 90.0
 offset_bottom = 29.0
 grow_horizontal = 2
 theme_override_constants/outline_size = 6
-theme_override_fonts/normal_font = ExtResource("1_wr0fo")
+theme_override_fonts/normal_font = ExtResource("2_1yjp4")
 theme_override_font_sizes/normal_font_size = 9
 theme_override_font_sizes/bold_italics_font_size = 3
 bbcode_enabled = true
 text = "[font_size=7]ГОТОВ ЗА ПАРТИ!!!
 [font_size=3][b]ГОТОВ ДА СЕ НАПИЕШ?
-[font_size=8][color=#ffcf40]Предизвикателства
+[font_size=8][color=#FAF8D9]Признания / Истини
 "
 horizontal_alignment = 1
 
@@ -710,10 +704,10 @@ columns = 2
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 theme_override_font_sizes/font_size = 5
-theme_override_styles/normal = SubResource("StyleBoxTexture_0e48y")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_mne4e")
-theme_override_styles/hover = SubResource("StyleBoxTexture_72q2g")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_mne4e")
+theme_override_styles/normal = SubResource("StyleBoxTexture_0bk1a")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1yjp4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1er8t")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_etn5w")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/GridContainer/Classic"]
 layout_mode = 0
@@ -741,16 +735,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_wjs4o")
+theme_override_styles/panel = SubResource("StyleBoxFlat_yycwa")
 
 [node name="Extreme" type="Button" parent="ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 theme_override_font_sizes/font_size = 5
-theme_override_styles/normal = SubResource("StyleBoxTexture_0hol4")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_mc1i1")
-theme_override_styles/hover = SubResource("StyleBoxTexture_wjs4o")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_wjs4o")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ejhy6")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ocnfr")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6c3l8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g7ge1")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/GridContainer/Extreme"]
 layout_mode = 0
@@ -779,16 +773,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_8rkvs")
+theme_override_styles/panel = SubResource("StyleBoxFlat_1hajl")
 
 [node name="Sexy" type="Button" parent="ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 theme_override_font_sizes/font_size = 5
-theme_override_styles/normal = SubResource("StyleBoxTexture_q6r6c")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_xnfqo")
-theme_override_styles/hover = SubResource("StyleBoxTexture_8rkvs")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_mc1i1")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ewle6")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_l50uy")
+theme_override_styles/hover = SubResource("StyleBoxTexture_tsvaw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7xhw6")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/GridContainer/Sexy"]
 layout_mode = 0
@@ -818,16 +812,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_xnfqo")
+theme_override_styles/panel = SubResource("StyleBoxFlat_cqudm")
 
 [node name="Dirty" type="Button" parent="ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 theme_override_font_sizes/font_size = 5
-theme_override_styles/normal = SubResource("StyleBoxTexture_kdubu")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_kumpi")
-theme_override_styles/hover = SubResource("StyleBoxTexture_qs7lm")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_72q2g")
+theme_override_styles/normal = SubResource("StyleBoxTexture_qgprj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_x32is")
+theme_override_styles/hover = SubResource("StyleBoxTexture_bn12k")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g380b")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/GridContainer/Dirty"]
 layout_mode = 0
@@ -858,16 +852,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_qs7lm")
+theme_override_styles/panel = SubResource("StyleBoxFlat_w1mvk")
 
 [node name="UserDares" type="Button" parent="ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 theme_override_font_sizes/font_size = 5
-theme_override_styles/normal = SubResource("StyleBoxTexture_srusp")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_h3qna")
-theme_override_styles/hover = SubResource("StyleBoxTexture_v64op")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_xnfqo")
+theme_override_styles/normal = SubResource("StyleBoxTexture_7uwio")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gm2p3")
+theme_override_styles/hover = SubResource("StyleBoxTexture_fom8i")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yva8l")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/GridContainer/UserDares"]
 layout_mode = 0
@@ -897,7 +891,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_1dybb")
+theme_override_styles/panel = SubResource("StyleBoxFlat_sw81h")
 
 [node name="MoreGamesNode2D" type="Node2D" parent="."]
 
@@ -984,7 +978,6 @@ grow_vertical = 2
 mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
-theme_override_fonts/normal_font = ExtResource("8_mai8y")
 theme_override_font_sizes/normal_font_size = 7
 theme_override_font_sizes/bold_font_size = 7
 theme_override_font_sizes/bold_italics_font_size = 7
@@ -995,7 +988,7 @@ text = "Предизвикателства"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TruthsButton" type="Button" parent="MoreGamesNode2D/MoreGamesPanel/ScrollContainer/GridContainer"]
+[node name="ТruthsButton" type="Button" parent="MoreGamesNode2D/MoreGamesPanel/ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(82, 20)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_7ewk0")
@@ -1003,7 +996,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_lhp3t")
 theme_override_styles/hover = SubResource("StyleBoxFlat_gnsmo")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_m1efj")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MoreGamesNode2D/MoreGamesPanel/ScrollContainer/GridContainer/TruthsButton"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MoreGamesNode2D/MoreGamesPanel/ScrollContainer/GridContainer/ТruthsButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1013,7 +1006,6 @@ grow_vertical = 2
 mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
-theme_override_fonts/normal_font = ExtResource("8_mai8y")
 theme_override_font_sizes/normal_font_size = 7
 theme_override_font_sizes/bold_font_size = 7
 theme_override_font_sizes/bold_italics_font_size = 7
@@ -1029,106 +1021,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_wjs4o")
 }
 
-[node name="WarningPanel" type="Panel" parent="."]
-offset_left = 2.0
-offset_top = 5.0
-offset_right = 88.0
-offset_bottom = 155.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_mne4e")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="WarningPanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = 1.0
-offset_right = -1.0
-offset_bottom = -18.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 5
-theme_override_font_sizes/bold_font_size = 5
-theme_override_font_sizes/bold_italics_font_size = 5
-theme_override_font_sizes/italics_font_size = 5
-theme_override_font_sizes/mono_font_size = 5
-bbcode_enabled = true
-text = "⚠️ [b]Предупреждение и информация[/b]
-
-• Тази игра е създадена с единствената цел да донесе забавление, смях и добри моменти сред приятели.
-Целта ѝ е всички да си прекарате чудесно заедно, но моля, имайте предвид следното:
-
-• Ако някое от предизвикателствата ви се струва твърде крайно, неудобно или неподходящо за вас или компанията ви – просто го пропусни без никакви притеснения.
-
-• Повечето предизвикателства включват консумация на алкохол.
-
-• В някои случаи може да срещнеш нецензурен, обиден или вулгарен език.
-
-• Ако сте под 18 години, моля напуснете приложението или играй само  използвайки безалкохолни напитки.
-
-[b]🕹️ Как се играе[/b]
-
-Играта е лесна и забавна:
-
-[b]1. [/b]Избери категория, която подхожда на вашата компания.
-[b]2. [/b]Въведи имената на участниците.
-[b]3. [/b]Изпълнявай предизвикателствата, показани на картите.
-[b]4. [/b]Ако откажеш да изпълниш някое, бъди готов за наказание!
-
-[b]🍹 Подготви се преди да започнете[/b]
-
-• Всеки играч трябва да има напитка.
-• Някои предизвикателства изискват шотове – може да ги подготвите предварително.
-• Освен напитки, може да са нужни и:
-[i]◦	стандартно тесте карти
-◦	зар
-◦	монета
-◦	кубчета лед[/i]
-
-[color=red]• В много предизвикателства наказанията включват пиене, а понякога употребата на алкохол е неизбежна, ако искате да следвате правилата.
-
-[b]⚠️ Играй отговорно![/b][/color]
-
-• Бъди внимателен с количеството алкохол.
-Ако не си сигурен колко можеш да поемеш, разреждай напитките си или намали градуса на алкохола, особено при шотове.
-
-[i]🎉 Тази игра е създадена само за забавление и за да прекарате приятно време с приятели.
-Играй разумно, забавлявай се отговорно и се погрижи всички да се чувстват добре![/i]
-
-[b]Наздраве и приятно прекарване! 🥂"
-
-[node name="PlayButton" type="Button" parent="WarningPanel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.186
-anchor_top = 0.9
-anchor_right = 0.814
-anchor_bottom = 0.98
-offset_left = 0.00399971
-offset_right = -0.0039978
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_8rkvs")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="WarningPanel/PlayButton"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_font_sizes/normal_font_size = 5
-theme_override_font_sizes/bold_font_size = 5
-theme_override_font_sizes/bold_italics_font_size = 5
-theme_override_font_sizes/italics_font_size = 5
-theme_override_font_sizes/mono_font_size = 5
-bbcode_enabled = true
-text = "[b]Прочетох! Играя!"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="ClosingScenesPanels" type="Node2D" parent="."]
+visible = false
 
 [node name="Panel_Normal" type="Panel" parent="ClosingScenesPanels"]
 offset_right = 90.0
@@ -1238,15 +1132,7 @@ text = "Трявба да имаш минимум
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="button_down" from="ScrollContainer/GridContainer/Classic" to="." method="_on_classic_button_down"]
-[connection signal="button_down" from="ScrollContainer/GridContainer/Extreme" to="." method="_on_extreme_button_down"]
-[connection signal="button_down" from="ScrollContainer/GridContainer/Sexy" to="." method="_on_sexy_button_down"]
-[connection signal="button_down" from="ScrollContainer/GridContainer/Dirty" to="." method="_on_dirty_button_down"]
-[connection signal="button_down" from="ScrollContainer/GridContainer/UserDares" to="." method="_on_user_dares_button_down"]
 [connection signal="button_down" from="MoreGamesNode2D/MoreGamesPanel/ShowButton" to="." method="_on_button_button_down"]
-[connection signal="button_down" from="MoreGamesNode2D/MoreGamesPanel/ScrollContainer/GridContainer/DaresButton" to="." method="_on_dares_button_button_down"]
-[connection signal="button_down" from="MoreGamesNode2D/MoreGamesPanel/ScrollContainer/GridContainer/TruthsButton" to="." method="_on_truths_button_button_down"]
-[connection signal="button_down" from="WarningPanel/PlayButton" to="." method="_on_play_button_button_down"]
 [connection signal="button_down" from="UserDaresChoicePanel/VBoxContainer/Play" to="." method="_on_play_button_down"]
 [connection signal="button_down" from="UserDaresChoicePanel/VBoxContainer/Create" to="." method="_on_create_button_down"]
 [connection signal="button_down" from="UserDaresChoicePanel/CloseButton" to="." method="_on_close_button_user_dares_choice_panel_down"]

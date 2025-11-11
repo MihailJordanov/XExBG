@@ -1,10 +1,9 @@
-class_name MainSceneController extends Node2D
+class_name MainSceneThruthsController extends Node2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var classic_button: Button = $ScrollContainer/GridContainer/Classic
-@onready var warning_panel: Panel = $WarningPanel
 @onready var user_dares_choice_panel: Panel = $UserDaresChoicePanel
-@onready var user_dares_button: Button = $ScrollContainer/GridContainer/UserDares
+#@onready var user_dares_button: Button = $ScrollContainer/GridContainer/UserDares
 
 # UserDaresChoicePanel
 @onready var user_dare_play_button: Button = $UserDaresChoicePanel/VBoxContainer/Play
@@ -15,8 +14,6 @@ var is_more_games_panel_show : bool = false
 
 func _ready() -> void:
 	animation_player.play("opening_scene")
-	if DareManager.is_warning_ready:
-		warning_panel.visible = false
 		
 	user_dare_error_label.visible = false
 	
@@ -42,21 +39,19 @@ func play_anim_then_change_scene(anim_player: AnimationPlayer, anim: StringName,
 
 
 
+
+
+
 func _on_classic_button_down() -> void:
-	play_anim_then_change_scene(animation_player, &"start_classic", "res://Scenes/classic_level_01.tscn")
+	play_anim_then_change_scene(animation_player, &"start_classic", "res://Scenes/Truths/classic_truths_level_01.tscn")
 
-
-func _on_extreme_button_down() -> void:
-	play_anim_then_change_scene(animation_player, &"start_classic", "res://Scenes/extreme_level_01.tscn")
-
-
-func _on_sexy_button_down() -> void:
-	play_anim_then_change_scene(animation_player, &"start_classic", "res://Scenes/sexy_level_01.tscn")
+func _on_personally_button_down() -> void:
+	play_anim_then_change_scene(animation_player, &"start_classic", "res://Scenes/Truths/personal_truths_level_01.tscn")
 	
+func _on_love_button_down() -> void:
+	play_anim_then_change_scene(animation_player, &"start_classic", "res://Scenes/Truths/love_truths_level_01.tscn")
 
-func _on_dirty_button_down() -> void:
-	play_anim_then_change_scene(animation_player, &"start_dirty", "res://Scenes/dirty_level_01.tscn")
-
+	
 
 func _on_create_button_down() -> void:
 	play_anim_then_change_scene(animation_player, &"start_classic", "res://Scenes/user_create_dares.tscn")
@@ -76,19 +71,13 @@ func _on_play_button_down() -> void:
 	# Всичко е ок -> стартирай сцената
 	play_anim_then_change_scene(animation_player, &"start_classic", "res://Scenes/user_dares.tscn")
 
-func _on_play_button_button_down() -> void:
-	DareManager.is_warning_ready = true
-	warning_panel.visible = false
 
-
-func _on_user_dares_button_down() -> void:
-	user_dares_choice_panel.visible = true
-	_update_user_dares_hint()
-
+#func _on_user_dares_button_down() -> void:
+#	user_dares_choice_panel.visible = true
+#	_update_user_dares_hint()
 
 func _on_close_button_user_dares_choice_panel_down() -> void:
 	user_dares_choice_panel.visible = false
-
 
 func _validate_user_dares() -> Dictionary:
 	var dares: Array[String] = DareManager.get_dares("user_dares")
@@ -130,7 +119,6 @@ func _update_user_dares_hint() -> void:
 	else:
 		user_dare_error_label.visible = false
 
-
 func _on_button_button_down() -> void:
 	if !is_more_games_panel_show:
 		animation_player.play("show_more_games_panel")
@@ -141,13 +129,14 @@ func _on_button_button_down() -> void:
 
 
 func _on_dares_button_button_down() -> void:
+	play_anim_then_change_scene(animation_player, &"start_classic", "res://Scenes/main_scene.tscn")
+
+
+
+func _on_truths_button_button_down() -> void:
 	if !is_more_games_panel_show:
 		animation_player.play("show_more_games_panel")
 		is_more_games_panel_show = true
 	else:
 		animation_player.play("hide_more_games_panel")
 		is_more_games_panel_show = false
-
-
-func _on_truths_button_button_down() -> void:
-	play_anim_then_change_scene(animation_player, &"start_classic", "res://Scenes/main_scene_truths.tscn")

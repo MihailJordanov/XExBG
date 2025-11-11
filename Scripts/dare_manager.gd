@@ -5,13 +5,21 @@ const SAVE_PATH := "user://save.json"              # истинският сей
 
 var is_warning_ready := false
 
-const CATEGORY_KEYS := [
+
+const TRUTH_CATEGORIES := [
+	"common_truths",
+	"personal_truths",
+	"love_trurhs"
+]
+
+var CATEGORY_KEYS := [
 	"classic_dares",
 	"extreme_dares",
 	"sexy_dares",
 	"dirty_dares",
 	"user_dares"
-]
+] + TRUTH_CATEGORIES
+
 
 var current_save: Dictionary = {}
 
@@ -111,24 +119,33 @@ func load_dares() -> bool:
 		return false
 
 	if def_ok and not usr_ok:
+		# Ако има само дефолт, взимаме го и записваме към user://
 		current_save = def_dict
 		save_dares()
 		return true
 
 	if usr_ok and not def_ok:
-		current_save = usr_dict
+		# Ако има само user сейв, нормализираме (за да добавим новите категории като празни масиви).
+		current_save = _normalize_loaded(usr_dict)
 		return true
 
+	# Има и дефолт, и юзър сейв.
+	# Стартова база: дефолтът – така truth категориите винаги се четат от DEFAULT_SAVE_PATH.
 	var merged := def_dict.duplicate(true)
 
+	# Специален случай: user_dares да идват от user save (както досега).
 	if has_category("user_dares"):
 		var usr_arr: Array[String] = []
 		if usr_dict.has("user_dares") and typeof(usr_dict["user_dares"]) == TYPE_ARRAY:
 			usr_arr = _as_string_array(usr_dict["user_dares"])
 		merged["user_dares"] = usr_arr
 
+	# Забележка: TRUTH_CATEGORIES НЕ се презаписват с usr_dict — остават както са в дефолта.
+	# Ако липсват в дефолта, _normalize_loaded ще ги добави като [].
+
 	current_save = _normalize_loaded(merged)
 
+	# Записваме целия current_save в SAVE_PATH (вкл. truth категориите), без да пипаме DEFAULT файла.
 	save_dares()
 	return true
 
