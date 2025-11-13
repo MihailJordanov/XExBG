@@ -1,10 +1,11 @@
-[gd_scene load_steps=66 format=3 uid="uid://be1ghp2lkh0pj"]
+[gd_scene load_steps=71 format=3 uid="uid://be1ghp2lkh0pj"]
 
 [ext_resource type="Script" uid="uid://cqy55rwwo8jjk" path="res://Scripts/main_scene_truths_controller.gd" id="1_wf64d"]
 [ext_resource type="FontFile" uid="uid://bcjx4bib6qgco" path="res://Fonts/ZeroCool.otf" id="2_1yjp4"]
 [ext_resource type="Texture2D" uid="uid://rsaiti8dlcxs" path="res://Images/Buttons/Truths/classic.png" id="3_wf64d"]
 [ext_resource type="Texture2D" uid="uid://c3yxefmbk6gt6" path="res://Images/Buttons/Truths/cool_bg.png" id="4_0bk1a"]
 [ext_resource type="Texture2D" uid="uid://c1d0mhuea8c57" path="res://Images/Buttons/Truths/love_bg.png" id="5_1yjp4"]
+[ext_resource type="FontFile" uid="uid://bm6frqggfxsvc" path="res://Fonts/ZeroCool.ttf" id="7_0bk1a"]
 [ext_resource type="Texture2D" uid="uid://f2pujv2srduk" path="res://Images/Buttons/your_dares_bg.png" id="7_ocnfr"]
 [ext_resource type="Texture2D" uid="uid://cr2j5hdfvqsyj" path="res://Images/Panels/dirty_icon_2.png" id="8_6c3l8"]
 [ext_resource type="Texture2D" uid="uid://c4ffcomu5nwuj" path="res://Images/Buttons/close_2.png" id="9_g7ge1"]
@@ -211,6 +212,44 @@ corner_radius_bottom_left = 3
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lhp3t"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m1efj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1yjp4"]
+bg_color = Color(0.49803922, 0.9137255, 0.9137255, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0.78039217, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1er8t"]
+bg_color = Color(0.30588236, 0.70980394, 0.9137255, 0.85490197)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.6823226, 0.84102535, 0.99999994, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_etn5w"]
+bg_color = Color(0.5803922, 0.8117647, 0.8156863, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.5948672, 0.8770848, 0.99999994, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yycwa"]
 
 [sub_resource type="Shader" id="Shader_v64op"]
 code = "shader_type canvas_item;
@@ -950,6 +989,36 @@ text = "Признания / Истини"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="WheelButton" type="Button" parent="MoreGamesNode2D/MoreGamesPanel/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(82, 20)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_1yjp4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1er8t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_etn5w")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yycwa")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MoreGamesNode2D/MoreGamesPanel/ScrollContainer/GridContainer/WheelButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/normal_font = ExtResource("7_0bk1a")
+theme_override_font_sizes/normal_font_size = 6
+theme_override_font_sizes/bold_font_size = 6
+theme_override_font_sizes/bold_italics_font_size = 6
+theme_override_font_sizes/italics_font_size = 6
+theme_override_font_sizes/mono_font_size = 6
+bbcode_enabled = true
+text = "Колелото на
+късмета"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_wjs4o")
@@ -1071,6 +1140,7 @@ vertical_alignment = 1
 [connection signal="button_down" from="MoreGamesNode2D/MoreGamesPanel/ShowButton" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="MoreGamesNode2D/MoreGamesPanel/ScrollContainer/GridContainer/DaresButton" to="." method="_on_dares_button_button_down"]
 [connection signal="button_down" from="MoreGamesNode2D/MoreGamesPanel/ScrollContainer/GridContainer/TruthsButton" to="." method="_on_truths_button_button_down"]
+[connection signal="button_down" from="MoreGamesNode2D/MoreGamesPanel/ScrollContainer/GridContainer/WheelButton" to="." method="_on_wheel_button_button_down"]
 [connection signal="button_down" from="UserDaresChoicePanel/VBoxContainer/Play" to="." method="_on_play_button_down"]
 [connection signal="button_down" from="UserDaresChoicePanel/VBoxContainer/Create" to="." method="_on_create_button_down"]
 [connection signal="button_down" from="UserDaresChoicePanel/CloseButton" to="." method="_on_close_button_user_dares_choice_panel_down"]

@@ -1,0 +1,801 @@
+[gd_scene load_steps=39 format=3 uid="uid://crvfbf7f5t0ge"]
+
+[ext_resource type="Script" uid="uid://8417nnmr1u5f" path="res://Scripts/spin_wheel.gd" id="1_j77dv"]
+[ext_resource type="Texture2D" uid="uid://bbcgr7hijlqfa" path="res://Images/spin wheel/spin_wheel_background.png" id="1_m7fs6"]
+[ext_resource type="Texture2D" uid="uid://t7pvfvw66bxa" path="res://Images/spin wheel/spin_wheel_front_empty.png" id="2_bnr5u"]
+[ext_resource type="FontFile" uid="uid://bcjx4bib6qgco" path="res://Fonts/ZeroCool.otf" id="2_me6lg"]
+[ext_resource type="Texture2D" uid="uid://c3hhwvrmliati" path="res://Images/spin wheel/spin_wheel_button.png" id="3_f5kwl"]
+[ext_resource type="FontFile" uid="uid://bm6frqggfxsvc" path="res://Fonts/ZeroCool.ttf" id="4_01ha6"]
+[ext_resource type="Texture2D" uid="uid://cv5yvaoijk60n" path="res://Images/spin wheel/spin_wheel_button_press.png" id="4_j3kpp"]
+[ext_resource type="Texture2D" uid="uid://id2jk8mq182u" path="res://Images/spin wheel/spin_wheel_arrow.png" id="5_j3kpp"]
+[ext_resource type="Texture2D" uid="uid://cr2j5hdfvqsyj" path="res://Images/Panels/dirty_icon_2.png" id="8_r75cs"]
+
+[sub_resource type="Gradient" id="Gradient_j77dv"]
+colors = PackedColorArray(1, 0.21568628, 1, 1, 0.6392157, 0.48235294, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_01ha6"]
+gradient = SubResource("Gradient_j77dv")
+fill_from = Vector2(0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r75cs"]
+texture = SubResource("GradientTexture2D_01ha6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j77dv"]
+texture = ExtResource("3_f5kwl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_01ha6"]
+texture = ExtResource("4_j3kpp")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f5kwl"]
+texture = ExtResource("3_f5kwl")
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+modulate_color = Color(0.96035105, 0.96035105, 0.96035093, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_me6lg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cpmu5"]
+
+[sub_resource type="Animation" id="Animation_r75cs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InfoPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 96)]
+}
+
+[sub_resource type="Animation" id="Animation_me6lg"]
+resource_name = "hide_info"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InfoPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 96), Vector2(99, 96)]
+}
+
+[sub_resource type="Animation" id="Animation_216xc"]
+resource_name = "hide_more_games_panel"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MoreGamesNode2D/MoreGamesPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 35), Vector2(0, 160)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MoreGamesNode2D/MoreGamesPanel/ShowButton/RichTextLabel:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["Скрий", "Още игри"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MoreGamesNode2D/MoreGamesPanel/ShowButton/RichTextLabel2:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["⏷", "⏶"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MoreGamesNode2D/MoreGamesPanel/DisableTouchPanel:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_mbrcf"]
+resource_name = "opening_scene"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ClosingScenesPanels/Panel_Normal:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ClosingScenesPanels/Panel_Normal:theme_override_styles/panel:bg_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_01ha6"]
+resource_name = "show_info"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InfoPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-92, 96), Vector2(2, 96)]
+}
+
+[sub_resource type="Animation" id="Animation_cpmu5"]
+resource_name = "show_more_games_panel"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MoreGamesNode2D/MoreGamesPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 160), Vector2(0, 35)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MoreGamesNode2D/MoreGamesPanel/ShowButton/RichTextLabel:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["Още игри", "Скрий"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MoreGamesNode2D/MoreGamesPanel/ShowButton/RichTextLabel2:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["⏶", "⏷"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MoreGamesNode2D/MoreGamesPanel/DisableTouchPanel:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_44ltu"]
+resource_name = "start_classic"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ClosingScenesPanels/Panel_Normal:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-90, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ClosingScenesPanels/Panel_Normal:theme_override_styles/panel:bg_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cpmu5"]
+_data = {
+&"RESET": SubResource("Animation_r75cs"),
+&"hide_info": SubResource("Animation_me6lg"),
+&"hide_more_games_panel": SubResource("Animation_216xc"),
+&"opening_scene": SubResource("Animation_mbrcf"),
+&"show_info": SubResource("Animation_01ha6"),
+&"show_more_games_panel": SubResource("Animation_cpmu5"),
+&"start_classic": SubResource("Animation_44ltu")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_44ltu"]
+bg_color = Color(0.4808399, 0.6056046, 0.80164236, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mbrcf"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_svhhy"]
+bg_color = Color(0.7921569, 0.80784315, 0.8980392, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ad3gd"]
+bg_color = Color(0.85894674, 0.87003124, 0.9320579, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0iw1c"]
+bg_color = Color(0.627451, 0.80784315, 0.8980392, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nklbp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ocmb4"]
+bg_color = Color(0.49803922, 0.9137255, 0.9137255, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0.78039217, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wted0"]
+bg_color = Color(0.30588236, 0.70980394, 0.9137255, 0.85490197)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.6823226, 0.84102535, 0.99999994, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6o7ka"]
+bg_color = Color(0.5803922, 0.8117647, 0.8156863, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.5948672, 0.8770848, 0.99999994, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e44ti"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nskc4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nklbp"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ocmb4"]
+texture = ExtResource("8_r75cs")
+modulate_color = Color(1, 1, 1, 0)
+
+[node name="SpinWheel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_j77dv")
+
+[node name="BGPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 90.0
+offset_bottom = 160.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_r75cs")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_right = 90.0
+offset_bottom = 39.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("2_me6lg")
+theme_override_font_sizes/normal_font_size = 9
+theme_override_font_sizes/bold_italics_font_size = 3
+bbcode_enabled = true
+text = "[font_size=7]ГОТОВ ЗА ПАРТИ!!!
+[font_size=3][b]ГОТОВ ДА СЕ НАПИЕШ?
+[font_size=7][color=#00FFFF]Върти и каквото се падне
+"
+horizontal_alignment = 1
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 40.0
+offset_right = 85.0
+offset_bottom = 120.0
+texture = ExtResource("1_m7fs6")
+expand_mode = 4
+
+[node name="front" type="TextureRect" parent="background"]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 80.0
+scale = Vector2(0.96, 0.96)
+pivot_offset = Vector2(40, 40)
+texture = ExtResource("2_bnr5u")
+expand_mode = 3
+
+[node name="DarkBlueRichTextLabel" type="RichTextLabel" parent="background/front"]
+layout_mode = 0
+offset_left = 33.401005
+offset_top = 27.499994
+offset_right = 59.092243
+offset_bottom = 40.54893
+rotation = -1.5707964
+theme_override_constants/outline_size = 1
+theme_override_fonts/normal_font = ExtResource("4_01ha6")
+theme_override_font_sizes/normal_font_size = 4
+theme_override_font_sizes/bold_font_size = 4
+theme_override_font_sizes/bold_italics_font_size = 4
+theme_override_font_sizes/italics_font_size = 4
+theme_override_font_sizes/mono_font_size = 4
+text = "Една глътка"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GreenRichTextLabel" type="RichTextLabel" parent="background/front"]
+layout_mode = 0
+offset_left = 53.541664
+offset_top = 45.208344
+offset_right = 79.2329
+offset_bottom = 58.25728
+rotation = 0.7853982
+theme_override_constants/outline_size = 1
+theme_override_fonts/normal_font = ExtResource("4_01ha6")
+theme_override_font_sizes/normal_font_size = 4
+theme_override_font_sizes/bold_font_size = 4
+theme_override_font_sizes/bold_italics_font_size = 4
+theme_override_font_sizes/italics_font_size = 4
+theme_override_font_sizes/mono_font_size = 4
+text = "Една глътка"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="YellowRichTextLabel" type="RichTextLabel" parent="background/front"]
+layout_mode = 0
+offset_left = 35.833336
+offset_top = 53.54166
+offset_right = 61.524574
+offset_bottom = 66.59059
+rotation = 2.3561945
+theme_override_constants/outline_size = 1
+theme_override_fonts/normal_font = ExtResource("4_01ha6")
+theme_override_font_sizes/normal_font_size = 4
+theme_override_font_sizes/bold_font_size = 4
+theme_override_font_sizes/bold_italics_font_size = 4
+theme_override_font_sizes/italics_font_size = 4
+theme_override_font_sizes/mono_font_size = 4
+text = "Не пиеш"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OrangeRichTextLabel" type="RichTextLabel" parent="background/front"]
+layout_mode = 0
+offset_left = 52.5
+offset_top = 33.749992
+offset_right = 78.19124
+offset_bottom = 46.798927
+theme_override_constants/outline_size = 1
+theme_override_fonts/normal_font = ExtResource("4_01ha6")
+theme_override_font_sizes/normal_font_size = 4
+theme_override_font_sizes/bold_font_size = 4
+theme_override_font_sizes/bold_italics_font_size = 4
+theme_override_font_sizes/italics_font_size = 4
+theme_override_font_sizes/mono_font_size = 4
+text = "Пиеш шот"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BlueRichTextLabel" type="RichTextLabel" parent="background/front"]
+layout_mode = 0
+offset_left = 27.5
+offset_top = 49.375
+offset_right = 57.312996
+offset_bottom = 66.5457
+rotation = 3.1415927
+theme_override_constants/outline_size = 1
+theme_override_fonts/normal_font = ExtResource("4_01ha6")
+theme_override_font_sizes/normal_font_size = 3
+theme_override_font_sizes/bold_font_size = 3
+theme_override_font_sizes/bold_italics_font_size = 3
+theme_override_font_sizes/italics_font_size = 3
+theme_override_font_sizes/mono_font_size = 3
+text = "Довършваш напитката си"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PurpleRichTextLabel" type="RichTextLabel" parent="background/front"]
+layout_mode = 0
+offset_left = 46.249996
+offset_top = 53.54167
+offset_right = 71.94124
+offset_bottom = 66.59061
+rotation = 1.5707964
+theme_override_constants/outline_size = 1
+theme_override_fonts/normal_font = ExtResource("4_01ha6")
+theme_override_font_sizes/normal_font_size = 4
+theme_override_font_sizes/bold_font_size = 4
+theme_override_font_sizes/bold_italics_font_size = 4
+theme_override_font_sizes/italics_font_size = 4
+theme_override_font_sizes/mono_font_size = 4
+text = "Три глътки"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PinkRichTextLabel" type="RichTextLabel" parent="background/front"]
+layout_mode = 0
+offset_left = 45.208336
+offset_top = 27.499994
+offset_right = 70.89958
+offset_bottom = 40.548927
+rotation = -0.7853982
+theme_override_constants/outline_size = 1
+theme_override_fonts/normal_font = ExtResource("4_01ha6")
+theme_override_font_sizes/normal_font_size = 3
+theme_override_font_sizes/bold_font_size = 3
+theme_override_font_sizes/bold_italics_font_size = 3
+theme_override_font_sizes/italics_font_size = 3
+theme_override_font_sizes/mono_font_size = 3
+text = "Въртиш два пъти"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DarkGreenRichTextLabel" type="RichTextLabel" parent="background/front"]
+layout_mode = 0
+offset_left = 25.416666
+offset_top = 34.791668
+offset_right = 51.107906
+offset_bottom = 47.840603
+rotation = -2.3561945
+theme_override_constants/outline_size = 1
+theme_override_fonts/normal_font = ExtResource("4_01ha6")
+theme_override_font_sizes/normal_font_size = 4
+theme_override_font_sizes/bold_font_size = 4
+theme_override_font_sizes/bold_italics_font_size = 4
+theme_override_font_sizes/italics_font_size = 4
+theme_override_font_sizes/mono_font_size = 4
+text = "Върти пак"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="background"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 31.0
+offset_right = 49.0
+offset_bottom = 49.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_j77dv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_01ha6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_f5kwl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_me6lg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cpmu5")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="background/Button"]
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 18.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(1, 1, 0.49803922, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/normal_font = ExtResource("4_01ha6")
+theme_override_font_sizes/normal_font_size = 4
+theme_override_font_sizes/bold_font_size = 4
+theme_override_font_sizes/bold_italics_font_size = 4
+theme_override_font_sizes/italics_font_size = 4
+theme_override_font_sizes/mono_font_size = 4
+text = "Върти"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="arrow" type="TextureRect" parent="background"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = -3.0
+offset_right = 44.83978
+offset_bottom = 5.0
+texture = ExtResource("5_j3kpp")
+expand_mode = 3
+
+[node name="InfoPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 96.0
+offset_right = 88.0
+offset_bottom = 143.0
+
+[node name="InfoRichTextLabel" type="RichTextLabel" parent="InfoPanel"]
+layout_mode = 0
+offset_right = 86.0
+offset_bottom = 47.0
+theme_override_colors/default_color = Color(0.27058825, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.17254902, 0.17254902, 0.17254902, 0.96862745)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("4_01ha6")
+theme_override_font_sizes/normal_font_size = 11
+theme_override_font_sizes/bold_font_size = 11
+theme_override_font_sizes/bold_italics_font_size = 11
+theme_override_font_sizes/italics_font_size = 11
+theme_override_font_sizes/mono_font_size = 11
+bbcode_enabled = true
+text = "Натисни [color=ffff7f][wave]\"Върти\"[/wave][/color]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_cpmu5")
+}
+
+[node name="MoreGamesNode2D" type="Node2D" parent="."]
+
+[node name="MoreGamesPanel" type="Panel" parent="MoreGamesNode2D"]
+offset_top = 160.0
+offset_right = 90.0
+offset_bottom = 331.99957
+theme_override_styles/panel = SubResource("StyleBoxFlat_44ltu")
+
+[node name="DisableTouchPanel" type="Panel" parent="MoreGamesNode2D/MoreGamesPanel"]
+visible = false
+layout_mode = 0
+offset_top = -35.0
+offset_right = 90.0
+offset_bottom = 172.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mbrcf")
+
+[node name="ShowButton" type="Button" parent="MoreGamesNode2D/MoreGamesPanel"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = -13.0
+offset_right = 64.0
+offset_bottom = 4.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_svhhy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ad3gd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0iw1c")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nklbp")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MoreGamesNode2D/MoreGamesPanel/ShowButton"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 38.0
+offset_bottom = 13.0
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 5
+theme_override_font_sizes/bold_font_size = 5
+theme_override_font_sizes/bold_italics_font_size = 5
+theme_override_font_sizes/italics_font_size = 5
+theme_override_font_sizes/mono_font_size = 5
+text = "Още игри"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="MoreGamesNode2D/MoreGamesPanel/ShowButton"]
+layout_mode = 0
+offset_right = 38.0
+offset_bottom = 9.0
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 5
+theme_override_font_sizes/bold_font_size = 5
+theme_override_font_sizes/bold_italics_font_size = 5
+theme_override_font_sizes/italics_font_size = 5
+theme_override_font_sizes/mono_font_size = 5
+text = "⏶"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MoreGamesNode2D/MoreGamesPanel"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 7.0
+offset_right = 86.0
+offset_bottom = 166.0
+
+[node name="GridContainer" type="GridContainer" parent="MoreGamesNode2D/MoreGamesPanel/ScrollContainer"]
+layout_mode = 2
+
+[node name="DaresButton" type="Button" parent="MoreGamesNode2D/MoreGamesPanel/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(82, 20)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ocmb4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wted0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6o7ka")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e44ti")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MoreGamesNode2D/MoreGamesPanel/ScrollContainer/GridContainer/DaresButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/normal_font = ExtResource("4_01ha6")
+theme_override_font_sizes/normal_font_size = 7
+theme_override_font_sizes/bold_font_size = 7
+theme_override_font_sizes/bold_italics_font_size = 7
+theme_override_font_sizes/italics_font_size = 7
+theme_override_font_sizes/mono_font_size = 7
+bbcode_enabled = true
+text = "Предизвикателства"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TruthsButton" type="Button" parent="MoreGamesNode2D/MoreGamesPanel/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(82, 20)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ocmb4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wted0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6o7ka")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nskc4")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MoreGamesNode2D/MoreGamesPanel/ScrollContainer/GridContainer/TruthsButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/normal_font = ExtResource("4_01ha6")
+theme_override_font_sizes/normal_font_size = 7
+theme_override_font_sizes/bold_font_size = 7
+theme_override_font_sizes/bold_italics_font_size = 7
+theme_override_font_sizes/italics_font_size = 7
+theme_override_font_sizes/mono_font_size = 7
+bbcode_enabled = true
+text = "Признания / Истини"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WheelButton" type="Button" parent="MoreGamesNode2D/MoreGamesPanel/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(82, 20)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ocmb4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wted0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6o7ka")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nskc4")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MoreGamesNode2D/MoreGamesPanel/ScrollContainer/GridContainer/WheelButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/normal_font = ExtResource("4_01ha6")
+theme_override_font_sizes/normal_font_size = 6
+theme_override_font_sizes/bold_font_size = 6
+theme_override_font_sizes/bold_italics_font_size = 6
+theme_override_font_sizes/italics_font_size = 6
+theme_override_font_sizes/mono_font_size = 6
+bbcode_enabled = true
+text = "Колелото на
+късмета"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ClosingScenesPanels" type="Node2D" parent="."]
+visible = false
+
+[node name="Panel_Normal" type="Panel" parent="ClosingScenesPanels"]
+offset_right = 90.0
+offset_bottom = 160.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nklbp")
+
+[node name="Panel_Dirty" type="Panel" parent="ClosingScenesPanels"]
+offset_right = 90.0
+offset_bottom = 160.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ocmb4")
+
+[connection signal="button_down" from="background/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="MoreGamesNode2D/MoreGamesPanel/ShowButton" to="." method="_on_show_button_button_down"]
+[connection signal="button_down" from="MoreGamesNode2D/MoreGamesPanel/ScrollContainer/GridContainer/DaresButton" to="." method="_on_dares_button_button_down"]
+[connection signal="button_down" from="MoreGamesNode2D/MoreGamesPanel/ScrollContainer/GridContainer/TruthsButton" to="." method="_on_truths_button_button_down"]
+[connection signal="button_down" from="MoreGamesNode2D/MoreGamesPanel/ScrollContainer/GridContainer/WheelButton" to="." method="_on_wheel_button_button_down"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://kf1fvj5u34w5"]
+[gd_scene load_steps=79 format=3 uid="uid://kf1fvj5u34w5"]
 
 [ext_resource type="Script" uid="uid://dejyobwq80sg7" path="res://Scripts/main_scene_controller.gd" id="1_72q2g"]
 [ext_resource type="FontFile" uid="uid://bcjx4bib6qgco" path="res://Fonts/ZeroCool.otf" id="1_wr0fo"]
@@ -239,6 +239,44 @@ corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m1efj"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_psl12"]
+bg_color = Color(0.49803922, 0.9137255, 0.9137255, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0.78039217, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ebs2"]
+bg_color = Color(0.30588236, 0.70980394, 0.9137255, 0.85490197)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.6823226, 0.84102535, 0.99999994, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oyb3p"]
+bg_color = Color(0.5803922, 0.8117647, 0.8156863, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.5948672, 0.8770848, 0.99999994, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jvnna"]
+
 [sub_resource type="Shader" id="Shader_v64op"]
 code = "shader_type canvas_item;
 
@@ -362,6 +400,59 @@ tracks/7/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_mai8y"]
+resource_name = "hide_more_games_panel"
+length = 0.5
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MoreGamesNode2D/MoreGamesPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 35), Vector2(0, 160)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MoreGamesNode2D/MoreGamesPanel/ShowButton/RichTextLabel:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["Скрий", "Още игри"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MoreGamesNode2D/MoreGamesPanel/ShowButton/RichTextLabel2:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["⏷", "⏶"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MoreGamesNode2D/MoreGamesPanel/DisableTouchPanel:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="Animation" id="Animation_mc1i1"]
 resource_name = "opening_scene"
 length = 0.4
@@ -388,52 +479,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_72q2g"]
-resource_name = "start_classic"
-length = 0.4
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ClosingScenesPanels/Panel_Normal:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-90, 0), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ClosingScenesPanels/Panel_Normal:theme_override_styles/panel:bg_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_wjs4o"]
-resource_name = "start_dirty"
-length = 0.4
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ClosingScenesPanels/Panel_Dirty:theme_override_styles/panel:modulate_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_m1efj"]
@@ -489,57 +534,50 @@ tracks/3/keys = {
 "values": [false, true]
 }
 
-[sub_resource type="Animation" id="Animation_mai8y"]
-resource_name = "hide_more_games_panel"
-length = 0.5
-step = 0.25
+[sub_resource type="Animation" id="Animation_72q2g"]
+resource_name = "start_classic"
+length = 0.4
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MoreGamesNode2D/MoreGamesPanel:position")
+tracks/0/path = NodePath("ClosingScenesPanels/Panel_Normal:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 35), Vector2(0, 160)]
+"values": [Vector2(-90, 0), Vector2(0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("MoreGamesNode2D/MoreGamesPanel/ShowButton/RichTextLabel:text")
+tracks/1/path = NodePath("ClosingScenesPanels/Panel_Normal:theme_override_styles/panel:bg_color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": ["Скрий", "Още игри"]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MoreGamesNode2D/MoreGamesPanel/ShowButton/RichTextLabel2:text")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
+
+[sub_resource type="Animation" id="Animation_wjs4o"]
+resource_name = "start_dirty"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ClosingScenesPanels/Panel_Dirty:theme_override_styles/panel:modulate_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": ["⏷", "⏶"]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MoreGamesNode2D/MoreGamesPanel/DisableTouchPanel:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wjs4o"]
@@ -1024,6 +1062,36 @@ text = "Признания / Истини"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="WheelButton" type="Button" parent="MoreGamesNode2D/MoreGamesPanel/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(82, 20)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_psl12")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2ebs2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_oyb3p")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jvnna")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MoreGamesNode2D/MoreGamesPanel/ScrollContainer/GridContainer/WheelButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/normal_font = ExtResource("8_mai8y")
+theme_override_font_sizes/normal_font_size = 6
+theme_override_font_sizes/bold_font_size = 6
+theme_override_font_sizes/bold_italics_font_size = 6
+theme_override_font_sizes/italics_font_size = 6
+theme_override_font_sizes/mono_font_size = 6
+bbcode_enabled = true
+text = "Колелото на
+късмета"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_wjs4o")
@@ -1246,6 +1314,7 @@ vertical_alignment = 1
 [connection signal="button_down" from="MoreGamesNode2D/MoreGamesPanel/ShowButton" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="MoreGamesNode2D/MoreGamesPanel/ScrollContainer/GridContainer/DaresButton" to="." method="_on_dares_button_button_down"]
 [connection signal="button_down" from="MoreGamesNode2D/MoreGamesPanel/ScrollContainer/GridContainer/TruthsButton" to="." method="_on_truths_button_button_down"]
+[connection signal="button_down" from="MoreGamesNode2D/MoreGamesPanel/ScrollContainer/GridContainer/WheelButton" to="." method="_on_wheel_button_button_down"]
 [connection signal="button_down" from="WarningPanel/PlayButton" to="." method="_on_play_button_button_down"]
 [connection signal="button_down" from="UserDaresChoicePanel/VBoxContainer/Play" to="." method="_on_play_button_down"]
 [connection signal="button_down" from="UserDaresChoicePanel/VBoxContainer/Create" to="." method="_on_create_button_down"]

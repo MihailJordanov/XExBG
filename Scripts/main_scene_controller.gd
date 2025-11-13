@@ -151,3 +151,7 @@ func _on_dares_button_button_down() -> void:
 
 func _on_truths_button_button_down() -> void:
 	play_anim_then_change_scene(animation_player, &"start_classic", "res://Scenes/main_scene_truths.tscn")
+
+
+func _on_wheel_button_button_down() -> void:
+	play_anim_then_change_scene(animation_player, &"start_classic", "res://Scenes/SpinWheel/spin_wheel.tscn")

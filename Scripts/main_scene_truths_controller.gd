@@ -140,3 +140,7 @@ func _on_truths_button_button_down() -> void:
 	else:
 		animation_player.play("hide_more_games_panel")
 		is_more_games_panel_show = false
+
+
+func _on_wheel_button_button_down() -> void:
+	play_anim_then_change_scene(animation_player, &"start_classic", "res://Scenes/SpinWheel/spin_wheel.tscn")
