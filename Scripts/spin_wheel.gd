@@ -35,7 +35,7 @@ var vat_pham = [
 		"name": "Yellow",
 		"from": 135,
 		"to": 180,
-		"text": "Не пиеш"
+		"text": "Сваляш дреха"
 	},
 	{
 		"name": "Purple",
@@ -47,7 +47,7 @@ var vat_pham = [
 		"name": "Green",
 		"from": 225,
 		"to": 270,
-		"text": "Една глътка"
+		"text": "Две глътки"
 	},
 	{
 		"name": "Orange",
@@ -59,7 +59,7 @@ var vat_pham = [
 		"name": "Pink",
 		"from": 315,
 		"to": 360,
-		"text": "Въртиш два пъти"
+		"text": "Всички останали, без теб, пият"
 	}
 	]
 	

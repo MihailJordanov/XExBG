@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://kf1fvj5u34w5"]
+[gd_scene load_steps=80 format=3 uid="uid://kf1fvj5u34w5"]
 
 [ext_resource type="Script" uid="uid://dejyobwq80sg7" path="res://Scripts/main_scene_controller.gd" id="1_72q2g"]
 [ext_resource type="FontFile" uid="uid://bcjx4bib6qgco" path="res://Fonts/ZeroCool.otf" id="1_wr0fo"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cr2j5hdfvqsyj" path="res://Images/Panels/dirty_icon_2.png" id="7_mne4e"]
 [ext_resource type="Texture2D" uid="uid://f2pujv2srduk" path="res://Images/Buttons/your_dares_bg.png" id="7_wjs4o"]
 [ext_resource type="FontFile" uid="uid://bm6frqggfxsvc" path="res://Fonts/ZeroCool.ttf" id="8_mai8y"]
+[ext_resource type="Texture2D" uid="uid://c7ou7f4uw1xpa" path="res://Images/Buttons/arrow_up.png" id="9_76v2p"]
 [ext_resource type="Texture2D" uid="uid://c4ffcomu5nwuj" path="res://Images/Buttons/close_2.png" id="9_mc1i1"]
 
 [sub_resource type="Gradient" id="Gradient_mne4e"]
@@ -372,32 +373,32 @@ tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": ["Още игри"]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("MoreGamesNode2D/MoreGamesPanel/ShowButton/RichTextLabel2:text")
+tracks/6/path = NodePath("MoreGamesNode2D/MoreGamesPanel/DisableTouchPanel:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["⏶"]
+"values": [false]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("MoreGamesNode2D/MoreGamesPanel/DisableTouchPanel:visible")
+tracks/7/path = NodePath("MoreGamesNode2D/MoreGamesPanel/ShowButton/TextureRect:rotation")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_mai8y"]
@@ -425,32 +426,32 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
+"update": 0,
 "values": ["Скрий", "Още игри"]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("MoreGamesNode2D/MoreGamesPanel/ShowButton/RichTextLabel2:text")
+tracks/2/path = NodePath("MoreGamesNode2D/MoreGamesPanel/DisableTouchPanel:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": ["⏷", "⏶"]
+"values": [true, false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("MoreGamesNode2D/MoreGamesPanel/DisableTouchPanel:visible")
+tracks/3/path = NodePath("MoreGamesNode2D/MoreGamesPanel/ShowButton/TextureRect:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true, false]
+"values": [3.141592653589793, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_mc1i1"]
@@ -512,26 +513,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("MoreGamesNode2D/MoreGamesPanel/ShowButton/RichTextLabel2:text")
+tracks/2/path = NodePath("MoreGamesNode2D/MoreGamesPanel/DisableTouchPanel:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": ["⏶", "⏷"]
+"values": [false, true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("MoreGamesNode2D/MoreGamesPanel/DisableTouchPanel:visible")
+tracks/3/path = NodePath("MoreGamesNode2D/MoreGamesPanel/ShowButton/TextureRect:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false, true]
+"values": [0.0, 3.141592653589793]
 }
 
 [sub_resource type="Animation" id="Animation_72q2g"]
@@ -737,7 +738,6 @@ offset_left = 3.0
 offset_top = 31.0
 offset_right = 87.0
 offset_bottom = 144.0
-horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
 [node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
@@ -942,10 +942,11 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_1dybb")
 [node name="MoreGamesPanel" type="Panel" parent="MoreGamesNode2D"]
 offset_top = 160.0
 offset_right = 90.0
-offset_bottom = 331.99985
+offset_bottom = 331.9999
 theme_override_styles/panel = SubResource("StyleBoxFlat_m1efj")
 
 [node name="DisableTouchPanel" type="Panel" parent="MoreGamesNode2D/MoreGamesPanel"]
+visible = false
 layout_mode = 0
 offset_top = -35.0
 offset_right = 90.0
@@ -958,6 +959,7 @@ offset_left = 26.0
 offset_top = -13.0
 offset_right = 64.0
 offset_bottom = 4.0
+theme_override_fonts/font = ExtResource("8_mai8y")
 theme_override_styles/normal = SubResource("StyleBoxFlat_mai8y")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_76v2p")
 theme_override_styles/hover = SubResource("StyleBoxFlat_drdnd")
@@ -970,6 +972,7 @@ offset_right = 38.0
 offset_bottom = 13.0
 mouse_filter = 1
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("8_mai8y")
 theme_override_font_sizes/normal_font_size = 5
 theme_override_font_sizes/bold_font_size = 5
 theme_override_font_sizes/bold_italics_font_size = 5
@@ -979,20 +982,15 @@ text = "Още игри"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="MoreGamesNode2D/MoreGamesPanel/ShowButton"]
+[node name="TextureRect" type="TextureRect" parent="MoreGamesNode2D/MoreGamesPanel/ShowButton"]
 layout_mode = 0
-offset_right = 38.0
-offset_bottom = 9.0
-mouse_filter = 1
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 5
-theme_override_font_sizes/bold_font_size = 5
-theme_override_font_sizes/bold_italics_font_size = 5
-theme_override_font_sizes/italics_font_size = 5
-theme_override_font_sizes/mono_font_size = 5
-text = "⏶"
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_left = 16.0
+offset_top = 1.0
+offset_right = 22.0
+offset_bottom = 5.0
+pivot_offset = Vector2(3, 2)
+texture = ExtResource("9_76v2p")
+expand_mode = 3
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MoreGamesNode2D/MoreGamesPanel"]
 layout_mode = 0

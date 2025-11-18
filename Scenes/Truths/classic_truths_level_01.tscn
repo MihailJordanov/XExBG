@@ -657,7 +657,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ClosingScenePanel" type="Panel" parent="."]
-visible = false
 offset_right = 90.0
 offset_bottom = 160.0
 mouse_filter = 2
